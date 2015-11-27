@@ -1,0 +1,60 @@
+<#include "manageopenagenda_tabs.html" />
+<@tabs tab="agenda" />
+
+<@rowBox>
+    <@boxHeader i18nTitleKey="openagenda.manage_agendas.tableLabel">
+        <@headerButtons>
+
+        
+        <form class="form-inline pull-right" method="post" name="manage_agendas" action="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
+            <!-- Add pull-right to class1 -->
+            <@actionButtons button1Name="view_createAgenda" icon1="icon-plus icon-white" i18nValue1Key="openagenda.manage_agendas.buttonAdd" />
+        </form>
+        
+    </@headerButtons>
+    </@boxHeader>
+    <@boxBody>    
+    <@messages infos=infos />
+    <@paginationAdmin paginator=paginator combo=1 />
+    
+    <@table>
+        <tr>
+            <input type="hidden" id="id" name="id"/>
+            <th>#i18n{openagenda.manage_agendas.columnUid}</th>
+            <th>#i18n{openagenda.manage_agendas.columnName}</th>
+            <th>#i18n{openagenda.manage_agendas.columnDescription}</th>
+            <th>#i18n{portal.util.labelActions}</th>
+        </tr>
+        <@tableHeadBodySeparator />
+            <#list agenda_list as agenda >
+        <tr>
+            <input type="hidden" id="id" name="id"/>
+            <td>
+                ${agenda.uid}
+            </td>
+            <td>
+                ${agenda.name}
+            </td>
+            <td>
+                ${agenda.description}
+            </td>
+        <td>
+            <a href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?view=modifyAgenda&id=${agenda.id}"
+               class="btn btn-primary btn-small" title="#i18n{portal.util.labelModify}">
+                <i class="fa fa-pencil"></i>
+            </a>
+
+            <a href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?action=confirmRemoveAgenda&id=${agenda.id}"
+               class="btn btn-danger btn-small" title="#i18n{portal.util.labelDelete}" >
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+        </tr>
+        </#list>
+    </@table>
+
+    <@paginationAdmin paginator=paginator />
+
+  </@boxBody>
+</@rowBox>
+

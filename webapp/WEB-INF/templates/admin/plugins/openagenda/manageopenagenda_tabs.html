@@ -1,0 +1,11 @@
+<#macro tabs tab >
+<div>
+    <ul class="nav nav-tabs">
+        <li <#if tab="agenda">class="active"</#if>>
+            <a href="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
+                #i18n{openagenda.manage_agendas.pageTitle}
+            </a>
+        </li>
+    </ul>
+</div>
+</#macro>

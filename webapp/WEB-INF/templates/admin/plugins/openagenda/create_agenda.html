@@ -1,0 +1,15 @@
+<#include "manageopenagenda_tabs.html" />
+<@tabs tab="agenda" />
+
+<@rowBoxHeader i18nTitleKey="openagenda.create_agenda.pageTitle">
+    <form class="form-horizontal" method="post" name="create_agenda" action="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
+        <@messages errors=errors />
+        <input type="hidden" id="id" name="id"/>
+        
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelUid" inputName="uid" mandatory=true value="${agenda.uid!''}" i18nHelpBlockKey="openagenda.create_agenda.labelUid.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelName" inputName="name" mandatory=true value="${agenda.name!''}" i18nHelpBlockKey="openagenda.create_agenda.labelName.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelDescription" inputName="description"  value="${agenda.description!''}" i18nHelpBlockKey="openagenda.create_agenda.labelDescription.help" />
+        <@actionButtons button1Name="action_createAgenda" button2Name="view_manageAgendas"/>
+    </form>
+</@rowBoxHeader>
+

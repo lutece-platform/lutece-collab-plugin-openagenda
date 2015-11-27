@@ -1,0 +1,56 @@
+<#include "openagenda_tabs.html" />
+<@tabs tab="agenda" />
+
+<div class="row" >
+    <div class="col-sm-12">
+
+        <@messages infos=infos />
+
+        <form method="post"  action="jsp/site/Portal.jsp?page=agenda">
+            <button name="view_createAgenda" class="btn btn-primary pull-right" type="submit">
+                <span class="glyphicon glyphicon-plus"></span>
+                #i18n{openagenda.manage_agendas.buttonAdd}
+            </button>
+        </form>
+
+    <h4>#i18n{openagenda.manage_agendas.tableLabel}</h4>
+        
+    <table class="table table-condensed table-striped">
+        <tr>
+            <input type="hidden" id="id" name="id"/>
+            <th>#i18n{openagenda.manage_agendas.columnUid}</th>
+            <th>#i18n{openagenda.manage_agendas.columnName}</th>
+            <th>#i18n{openagenda.manage_agendas.columnDescription}</th>
+            <th>#i18n{portal.util.labelActions}</th>
+        </tr>
+            <#list agenda_list as agenda >
+        <tr>
+            <input type="hidden" id="id" name="id" />
+            <td>
+                ${agenda.uid}
+            </td>    
+            <td>
+                ${agenda.name}
+            </td>    
+            <td>
+                ${agenda.description}
+            </td>    
+        <td>
+            <a href="jsp/site/Portal.jsp?page=agenda&view=modifyAgenda&id=${agenda.id}"
+               class="btn btn-primary btn-small" title="#i18n{portal.util.labelModify}">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+
+            <a href="jsp/site/Portal.jsp?page=agenda&action=confirmRemoveAgenda&id=${agenda.id}"
+               class="btn btn-danger btn-small" title="#i18n{portal.util.labelDelete}" >
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </td>
+        </tr>
+        </#list>
+    </table>
+    
+    </div>
+</div>
+
+  
