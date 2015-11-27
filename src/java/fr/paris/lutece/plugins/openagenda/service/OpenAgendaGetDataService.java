@@ -64,6 +64,7 @@ public class OpenAgendaGetDataService {
         sb.append(urlPathEvent);
         sb.append("?key=");
         sb.append(key);
+        sb.append("&lang=fr");
         
         try {
             data = ha.doGet(sb.toString());

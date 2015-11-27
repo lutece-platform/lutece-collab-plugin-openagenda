@@ -258,7 +258,7 @@ public class AgendaXPage extends MVCApplication
         
         
         Map<String, Object> model = getModel(  );
-        model.put( MARK_EVENT_LIST, jsonResponse);
+        model.put( MARK_EVENT_LIST, response.getData());
 
         return getXPage( TEMPLATE_LIST_EVENTS, request.getLocale(  ), model );
     }

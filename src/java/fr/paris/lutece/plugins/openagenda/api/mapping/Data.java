@@ -19,8 +19,7 @@ public class Data {
     public String spacetimeinfo;
     public String image;
     public String imageThumb;
-    @JsonIgnore
-    public String title;
+    public Title title;
     @JsonIgnore
     public String description;
     @JsonIgnore
@@ -80,11 +79,11 @@ public class Data {
         this.imageThumb = imageThumb;
     }
 
-    public String getTitle() {
+    public Title getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(Title title) {
         this.title = title;
     }
 
