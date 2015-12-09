@@ -14,9 +14,9 @@ import java.util.List;
 public class Response {
     
     
-    public boolean success;
-    public String code;
-    public List<Data> data;
+    private boolean success;
+    private String code;
+    private List<EventData> data;
 
     public boolean isSuccess() {
         return success;
@@ -34,14 +34,12 @@ public class Response {
         this.code = code;
     }
 
-    public List<Data> getData() {
+    public List<EventData> getData() {
         return data;
     }
 
-    public void setData(List<Data> data) {
+    public void setData(List<EventData> data) {
         this.data = data;
     }
-    
-    
     
 }

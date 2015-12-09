@@ -9,7 +9,7 @@ package fr.paris.lutece.plugins.openagenda.api.mapping;
  *
  * @author mha
  */
-public class Title {
+public class Tags {
     
     private String fr;
     private String en;

@@ -5,31 +5,23 @@
  */
 package fr.paris.lutece.plugins.openagenda.api.mapping;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 /**
  *
  * @author mha
  */
-public class Data {
+public class EventData {
     
-    public String uid;
-    public String link;
-    public String updatedAt;
-    public String spacetimeinfo;
-    public String image;
-    public String imageThumb;
-    public Title title;
-    @JsonIgnore
-    public String description;
-    @JsonIgnore
-    public String freeText;
-    @JsonIgnore
-    public String tags;
-    @JsonIgnore
-    public String locations;
-    @JsonIgnore
-    public String thirdParties;
+    private String uid;
+    private String link;
+    private String updatedAt;
+    private String spacetimeinfo;
+    private String image;
+    private String imageThumb;
+    private Title title;
+    private Description description;
+    private Freetext freeText;
+    private Tags tags;
+    private String locations;
 
     public String getUid() {
         return uid;
@@ -87,44 +79,36 @@ public class Data {
         this.title = title;
     }
 
-    public String getDescription() {
+    public Description getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(Description description) {
         this.description = description;
     }
 
-    public String getFreeText() {
+    public Freetext getFreeText() {
         return freeText;
     }
 
-    public void setFreeText(String freeText) {
+    public void setFreeText(Freetext freeText) {
         this.freeText = freeText;
     }
 
-    public String getTags() {
+    public Tags getTags() {
         return tags;
     }
 
-    public void setTags(String tags) {
+    public void setTags(Tags tags) {
         this.tags = tags;
     }
-
+    
     public String getLocations() {
         return locations;
     }
 
     public void setLocations(String locations) {
         this.locations = locations;
-    }
-
-    public String getThirdParties() {
-        return thirdParties;
-    }
-
-    public void setThirdParties(String thirdParties) {
-        this.thirdParties = thirdParties;
     }
     
     

@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.paris.lutece.plugins.openagenda.service;
+package fr.paris.lutece.plugins.openagenda.client;
 
-import fr.paris.lutece.portal.service.init.LuteceInitException;
 import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.util.httpaccess.HttpAccess;
 import fr.paris.lutece.util.httpaccess.HttpAccessException;
@@ -16,7 +15,7 @@ import java.util.Map;
  *
  * @author mha
  */
-public class OpenAgendaGetDataService {
+public class FetchDataService {
     
     private static final String urlBase = "https://api.openagenda.com/v1";
     private static final String urlPathAgenda = "/agendas";

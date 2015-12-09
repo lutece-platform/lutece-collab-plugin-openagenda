@@ -9,7 +9,7 @@ package fr.paris.lutece.plugins.openagenda.api.mapping;
  *
  * @author mha
  */
-public class Title {
+public class Freetext {
     
     private String fr;
     private String en;
@@ -29,5 +29,6 @@ public class Title {
     public void setEn(String en) {
         this.en = en;
     }
+    
     
 }
