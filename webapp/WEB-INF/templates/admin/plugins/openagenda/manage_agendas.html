@@ -23,6 +23,12 @@
             <th>#i18n{openagenda.manage_agendas.columnUid}</th>
             <th>#i18n{openagenda.manage_agendas.columnName}</th>
             <th>#i18n{openagenda.manage_agendas.columnDescription}</th>
+            <th>#i18n{openagenda.manage_agendas.columnEventsEmbeddingCode}</th>
+            <th>#i18n{openagenda.manage_agendas.columnMapEmbeddingCode}</th>
+            <th>#i18n{openagenda.manage_agendas.columnSearchEmbeddingCode}</th>
+            <th>#i18n{openagenda.manage_agendas.columnCategoriesEmbeddingCode}</th>
+            <th>#i18n{openagenda.manage_agendas.columnTagsEmbeddingCode}</th>
+            <th>#i18n{openagenda.manage_agendas.columnCalendarEmbeddingCode}</th>
             <th>#i18n{portal.util.labelActions}</th>
         </tr>
         <@tableHeadBodySeparator />
@@ -37,6 +43,24 @@
             </td>
             <td>
                 ${agenda.description}
+            </td>
+            <td>
+                <textarea>${agenda.eventsEmbeddingCode}</textarea>
+            </td>
+            <td>
+                <textarea>${agenda.mapEmbeddingCode}</textarea>
+            </td>
+            <td>
+                <textarea>${agenda.searchEmbeddingCode}</textarea>
+            </td>
+            <td>
+                <textarea>${agenda.categoriesEmbeddingCode}</textarea>
+            </td>
+            <td>
+                <textarea>${agenda.tagsEmbeddingCode}</textarea>
+            </td>
+            <td>
+                <textarea>${agenda.calendarEmbeddingCode}</textarea>
             </td>
         <td>
             <a href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?view=modifyAgenda&id=${agenda.id}"

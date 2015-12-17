@@ -10,15 +10,11 @@
     <div class="col-sm-offset-1 col-sm-10">
 
 
-
-
         <!-- categories -->
-        <!-- div class="cbpgct cibulCategories" data-oact data-cbctl="75794079/44132950" data-lang="fr"></div>
-        <script type="text/javascript" src="//openagenda.com/js/embed/cibulCategoriesWidget.js"></script-->
+        ${agenda.categoriesEmbeddingCode}
 
         <!-- carte -->
-        <div class="cbpgmp cibulMap" data-oamp data-cbctl="58106757/50749896" data-lang="fr" ></div>
-        <script type="text/javascript" src="//openagenda.com/js/embed/cibulMapWidget.js"></script>
+        ${agenda.mapEmbeddingCode}
         
     </div>
 </div>
@@ -28,8 +24,7 @@
     <div class="col-sm-offset-1 col-sm-8">
 
         <!-- Evenements -->
-        <iframe style="width:100%;" frameborder="0" scrolling="no" allowtransparency="allowtransparency" class="cibulFrame cbpgbdy" data-oabdy src="//openagenda.com/agendas/58106757/embeds/50749896/events"></iframe>
-        <script type="text/javascript" src="//openagenda.com/js/embed/cibulBodyWidget.js"></script>   
+        ${agenda.eventsEmbeddingCode}
     </div>
 
 
@@ -37,14 +32,12 @@
 
         <!-- Recherche -->
         <div id="search">
-            <div class="cbpgsc cibulSearch" data-oasc data-cbctl="58106757/50749896|fr" data-lang="fr"></div>
-            <script type="text/javascript" src="//openagenda.com/js/embed/cibulSearchWidget.js"></script>
+            ${agenda.searchEmbeddingCode}
         </div>
 
         <!-- Calendrier -->
         <div id="calendar">
-            <div class="cbpgcl cibulCalendar" data-oacl data-cbctl="58106757/50749896|fr" data-lang="fr"></div>
-            <script type="text/javascript" src="//openagenda.com/js/embed/cibulCalendarWidget.js"></script>
+            ${agenda.calendarEmbeddingCode}
         </div>
     </div>
 

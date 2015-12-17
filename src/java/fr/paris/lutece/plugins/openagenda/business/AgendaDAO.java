@@ -49,11 +49,11 @@ public final class AgendaDAO implements IAgendaDAO
 {
     // Constants
     private static final String SQL_QUERY_NEW_PK = "SELECT max( id_agenda ) FROM openagenda_agenda";
-    private static final String SQL_QUERY_SELECT = "SELECT id_agenda, uid, Name, Description FROM openagenda_agenda WHERE id_agenda = ?";
-    private static final String SQL_QUERY_INSERT = "INSERT INTO openagenda_agenda ( id_agenda, uid, Name, Description ) VALUES ( ?, ?, ?, ? ) ";
+    private static final String SQL_QUERY_SELECT = "SELECT id_agenda, uid, Name, Description, EventsEmbeddingCode, MapEmbeddingCode, SearchEmbeddingCode, CategoriesEmbeddingCode, TagsEmbeddingCode, CalendarEmbeddingCode FROM openagenda_agenda WHERE id_agenda = ?";
+    private static final String SQL_QUERY_INSERT = "INSERT INTO openagenda_agenda ( id_agenda, uid, Name, Description, EventsEmbeddingCode, MapEmbeddingCode, SearchEmbeddingCode, CategoriesEmbeddingCode, TagsEmbeddingCode, CalendarEmbeddingCode ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ";
     private static final String SQL_QUERY_DELETE = "DELETE FROM openagenda_agenda WHERE id_agenda = ? ";
-    private static final String SQL_QUERY_UPDATE = "UPDATE openagenda_agenda SET id_agenda = ?, uid = ?, Name = ?, Description = ? WHERE id_agenda = ?";
-    private static final String SQL_QUERY_SELECTALL = "SELECT id_agenda, uid, Name, Description FROM openagenda_agenda";
+    private static final String SQL_QUERY_UPDATE = "UPDATE openagenda_agenda SET id_agenda = ?, uid = ?, Name = ?, Description = ?, EventsEmbeddingCode = ?, MapEmbeddingCode = ?, SearchEmbeddingCode = ?, CategoriesEmbeddingCode = ?, TagsEmbeddingCode = ?, CalendarEmbeddingCode = ? WHERE id_agenda = ?";
+    private static final String SQL_QUERY_SELECTALL = "SELECT id_agenda, uid, Name, Description, EventsEmbeddingCode, MapEmbeddingCode, SearchEmbeddingCode, CategoriesEmbeddingCode, TagsEmbeddingCode, CalendarEmbeddingCode FROM openagenda_agenda";
     private static final String SQL_QUERY_SELECTALL_ID = "SELECT id_agenda FROM openagenda_agenda";
 
     /**
@@ -92,6 +92,12 @@ public final class AgendaDAO implements IAgendaDAO
         daoUtil.setInt( 2, agenda.getUid( ) );
         daoUtil.setString( 3, agenda.getName( ) );
         daoUtil.setString( 4, agenda.getDescription( ) );
+        daoUtil.setString( 5, agenda.getEventsEmbeddingCode( ) );
+        daoUtil.setString( 6, agenda.getMapEmbeddingCode( ) );
+        daoUtil.setString( 7, agenda.getSearchEmbeddingCode( ) );
+        daoUtil.setString( 8, agenda.getCategoriesEmbeddingCode( ) );
+        daoUtil.setString( 9, agenda.getTagsEmbeddingCode( ) );
+        daoUtil.setString( 10, agenda.getCalendarEmbeddingCode( ) );
 
         daoUtil.executeUpdate( );
         daoUtil.free( );
@@ -116,6 +122,12 @@ public final class AgendaDAO implements IAgendaDAO
             agenda.setUid( daoUtil.getInt( 2 ) );
             agenda.setName( daoUtil.getString( 3 ) );
             agenda.setDescription( daoUtil.getString( 4 ) );
+            agenda.setEventsEmbeddingCode( daoUtil.getString( 5 ) );
+            agenda.setMapEmbeddingCode( daoUtil.getString( 6 ) );
+            agenda.setSearchEmbeddingCode( daoUtil.getString( 7 ) );
+            agenda.setCategoriesEmbeddingCode( daoUtil.getString( 8 ) );
+            agenda.setTagsEmbeddingCode( daoUtil.getString( 9 ) );
+            agenda.setCalendarEmbeddingCode( daoUtil.getString( 10 ) );
         }
 
         daoUtil.free( );
@@ -146,7 +158,13 @@ public final class AgendaDAO implements IAgendaDAO
         daoUtil.setInt( 2, agenda.getUid( ) );
         daoUtil.setString( 3, agenda.getName( ) );
         daoUtil.setString( 4, agenda.getDescription( ) );
-        daoUtil.setInt( 5, agenda.getId( ) );
+        daoUtil.setString( 5, agenda.getEventsEmbeddingCode( ) );
+        daoUtil.setString( 6, agenda.getMapEmbeddingCode( ) );
+        daoUtil.setString( 7, agenda.getSearchEmbeddingCode( ) );
+        daoUtil.setString( 8, agenda.getCategoriesEmbeddingCode( ) );
+        daoUtil.setString( 9, agenda.getTagsEmbeddingCode( ) );
+        daoUtil.setString( 10, agenda.getCalendarEmbeddingCode( ) );
+        daoUtil.setInt( 11, agenda.getId( ) );
 
         daoUtil.executeUpdate( );
         daoUtil.free( );
@@ -170,6 +188,12 @@ public final class AgendaDAO implements IAgendaDAO
                 agenda.setUid( daoUtil.getInt( 2 ) );
                 agenda.setName( daoUtil.getString( 3 ) );
                 agenda.setDescription( daoUtil.getString( 4 ) );
+                agenda.setEventsEmbeddingCode( daoUtil.getString( 5 ) );
+                agenda.setMapEmbeddingCode( daoUtil.getString( 6 ) );
+                agenda.setSearchEmbeddingCode( daoUtil.getString( 7 ) );
+                agenda.setCategoriesEmbeddingCode( daoUtil.getString( 8 ) );
+                agenda.setTagsEmbeddingCode( daoUtil.getString( 9 ) );
+                agenda.setCalendarEmbeddingCode( daoUtil.getString( 10 ) );
 
             agendaList.add( agenda );
         }

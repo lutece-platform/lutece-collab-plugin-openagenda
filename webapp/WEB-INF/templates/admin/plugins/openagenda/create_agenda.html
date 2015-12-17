@@ -6,9 +6,15 @@
         <@messages errors=errors />
         <input type="hidden" id="id" name="id"/>
         
-        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelUid" inputName="uid" mandatory=true value="${agenda.uid!''}" i18nHelpBlockKey="openagenda.create_agenda.labelUid.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelUid" inputName="uid"  value="${agenda.uid!''}" i18nHelpBlockKey="openagenda.create_agenda.labelUid.help" />
         <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelName" inputName="name" mandatory=true value="${agenda.name!''}" i18nHelpBlockKey="openagenda.create_agenda.labelName.help" />
         <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelDescription" inputName="description"  value="${agenda.description!''}" i18nHelpBlockKey="openagenda.create_agenda.labelDescription.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelEventsEmbeddingCode" inputName="eventsEmbeddingCode" mandatory=true value="${agenda.eventsEmbeddingCode!''}" i18nHelpBlockKey="openagenda.create_agenda.labelEventsEmbeddingCode.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelMapEmbeddingCode" inputName="mapEmbeddingCode"  value="${agenda.mapEmbeddingCode!''}" i18nHelpBlockKey="openagenda.create_agenda.labelMapEmbeddingCode.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelSearchEmbeddingCode" inputName="searchEmbeddingCode"  value="${agenda.searchEmbeddingCode!''}" i18nHelpBlockKey="openagenda.create_agenda.labelSearchEmbeddingCode.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelCategoriesEmbeddingCode" inputName="categoriesEmbeddingCode"  value="${agenda.categoriesEmbeddingCode!''}" i18nHelpBlockKey="openagenda.create_agenda.labelCategoriesEmbeddingCode.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelTagsEmbeddingCode" inputName="tagsEmbeddingCode"  value="${agenda.tagsEmbeddingCode!''}" i18nHelpBlockKey="openagenda.create_agenda.labelTagsEmbeddingCode.help" />
+        <@fieldInputText i18nLabelKey="openagenda.create_agenda.labelCalendarEmbeddingCode" inputName="calendarEmbeddingCode"  value="${agenda.calendarEmbeddingCode!''}" i18nHelpBlockKey="openagenda.create_agenda.labelCalendarEmbeddingCode.help" />
         <@actionButtons button1Name="action_createAgenda" button2Name="view_manageAgendas"/>
     </form>
 </@rowBoxHeader>

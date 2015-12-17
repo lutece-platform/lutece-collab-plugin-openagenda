@@ -53,6 +53,19 @@ public class Agenda
     
     @Size( max = 255 , message = "#i18n{openagenda.validation.agenda.Description.size}" ) 
     private String _strDescription;
+    
+    @NotEmpty( message = "#i18n{openagenda.validation.agenda.EventsEmbeddingCode.notEmpty}" )
+    private String _strEventsEmbeddingCode;
+    
+    private String _strMapEmbeddingCode;
+    
+    private String _strSearchEmbeddingCode;
+    
+    private String _strCategoriesEmbeddingCode;
+    
+    private String _strTagsEmbeddingCode;
+    
+    private String _strCalendarEmbeddingCode;
 
     /**
      * Returns the Id
@@ -122,5 +135,107 @@ public class Agenda
     public void setDescription( String strDescription )
     {
         _strDescription = strDescription;
+    }
+    /**
+     * Returns the EventsEmbeddingCode
+     * @return The EventsEmbeddingCode
+     */
+    public String getEventsEmbeddingCode( )
+    {
+        return _strEventsEmbeddingCode;
+    }
+
+    /**
+     * Sets the EventsEmbeddingCode
+     * @param strEventsEmbeddingCode The EventsEmbeddingCode
+     */ 
+    public void setEventsEmbeddingCode( String strEventsEmbeddingCode )
+    {
+        _strEventsEmbeddingCode = strEventsEmbeddingCode;
+    }
+    /**
+     * Returns the MapEmbeddingCode
+     * @return The MapEmbeddingCode
+     */
+    public String getMapEmbeddingCode( )
+    {
+        return _strMapEmbeddingCode;
+    }
+
+    /**
+     * Sets the MapEmbeddingCode
+     * @param strMapEmbeddingCode The MapEmbeddingCode
+     */ 
+    public void setMapEmbeddingCode( String strMapEmbeddingCode )
+    {
+        _strMapEmbeddingCode = strMapEmbeddingCode;
+    }
+    /**
+     * Returns the SearchEmbeddingCode
+     * @return The SearchEmbeddingCode
+     */
+    public String getSearchEmbeddingCode( )
+    {
+        return _strSearchEmbeddingCode;
+    }
+
+    /**
+     * Sets the SearchEmbeddingCode
+     * @param strSearchEmbeddingCode The SearchEmbeddingCode
+     */ 
+    public void setSearchEmbeddingCode( String strSearchEmbeddingCode )
+    {
+        _strSearchEmbeddingCode = strSearchEmbeddingCode;
+    }
+    /**
+     * Returns the CategoriesEmbeddingCode
+     * @return The CategoriesEmbeddingCode
+     */
+    public String getCategoriesEmbeddingCode( )
+    {
+        return _strCategoriesEmbeddingCode;
+    }
+
+    /**
+     * Sets the CategoriesEmbeddingCode
+     * @param strCategoriesEmbeddingCode The CategoriesEmbeddingCode
+     */ 
+    public void setCategoriesEmbeddingCode( String strCategoriesEmbeddingCode )
+    {
+        _strCategoriesEmbeddingCode = strCategoriesEmbeddingCode;
+    }
+    /**
+     * Returns the TagsEmbeddingCode
+     * @return The TagsEmbeddingCode
+     */
+    public String getTagsEmbeddingCode( )
+    {
+        return _strTagsEmbeddingCode;
+    }
+
+    /**
+     * Sets the TagsEmbeddingCode
+     * @param strTagsEmbeddingCode The TagsEmbeddingCode
+     */ 
+    public void setTagsEmbeddingCode( String strTagsEmbeddingCode )
+    {
+        _strTagsEmbeddingCode = strTagsEmbeddingCode;
+    }
+    /**
+     * Returns the CalendarEmbeddingCode
+     * @return The CalendarEmbeddingCode
+     */
+    public String getCalendarEmbeddingCode( )
+    {
+        return _strCalendarEmbeddingCode;
+    }
+
+    /**
+     * Sets the CalendarEmbeddingCode
+     * @param strCalendarEmbeddingCode The CalendarEmbeddingCode
+     */ 
+    public void setCalendarEmbeddingCode( String strCalendarEmbeddingCode )
+    {
+        _strCalendarEmbeddingCode = strCalendarEmbeddingCode;
     }
 }

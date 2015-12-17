@@ -33,11 +33,8 @@
  */
 package fr.paris.lutece.plugins.openagenda.web;
  
-import fr.paris.lutece.plugins.openagenda.api.mapping.Response;
 import fr.paris.lutece.plugins.openagenda.business.Agenda;
 import fr.paris.lutece.plugins.openagenda.business.AgendaHome;
-import fr.paris.lutece.plugins.openagenda.client.FetchDataService;
-import fr.paris.lutece.plugins.openagenda.service.OpenagendaService;
 import fr.paris.lutece.portal.util.mvc.commons.annotations.Action;
 import fr.paris.lutece.portal.web.xpages.XPage;
 import fr.paris.lutece.portal.util.mvc.xpage.MVCApplication;
@@ -48,10 +45,7 @@ import java.util.Map;
 import fr.paris.lutece.portal.service.message.SiteMessageService;
 import fr.paris.lutece.portal.service.message.SiteMessage;
 import fr.paris.lutece.portal.service.message.SiteMessageException;
-import fr.paris.lutece.portal.service.util.AppLogService;
-import java.io.IOException;
 import javax.servlet.http.HttpServletRequest; 
-import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * This class provides the user interface to manage Agenda xpages ( manage, create, modify, remove )
@@ -66,7 +60,6 @@ public class AgendaXPage extends MVCApplication
     private static final String TEMPLATE_MODIFY_AGENDA="/skin/plugins/openagenda/modify_agenda.html";
     private static final String TEMPLATE_LIST_EVENTS="/skin/plugins/openagenda/list_events.html";
     private static final String TEMPLATE_AGENDA_EVENTS="/skin/plugins/openagenda/agenda_events.html";
-    private static final String TEMPLATE_AGENDA_EVENTS_PERIOD="/skin/plugins/openagenda/agenda_events_period.html";
     
     // JSP
     private static final String JSP_PAGE_PORTAL = "jsp/site/Portal.jsp";
@@ -79,7 +72,6 @@ public class AgendaXPage extends MVCApplication
     // Markers
     private static final String MARK_AGENDA_LIST = "agenda_list";
     private static final String MARK_AGENDA = "agenda";
-    private static final String MARK_EVENT_LIST = "event_list";
     
     // Message
     private static final String MESSAGE_CONFIRM_REMOVE_AGENDA = "openagenda.message.confirmRemoveAgenda";
@@ -88,10 +80,8 @@ public class AgendaXPage extends MVCApplication
     private static final String VIEW_MANAGE_AGENDAS = "manageAgendas";
     private static final String VIEW_CREATE_AGENDA = "createAgenda";
     private static final String VIEW_MODIFY_AGENDA = "modifyAgenda";
-    private static final String VIEW_LISTEVENT_AGENDA = "listEventAgenda";
     private static final String VIEW_AGENDA_EVENTS = "agendaEvents";
-    private static final String VIEW_AGENDA_EVENTS_PERIOD = "agendaEventsPeriod";
-
+    
     // Actions
     private static final String ACTION_CREATE_AGENDA = "createAgenda";
     private static final String ACTION_MODIFY_AGENDA= "modifyAgenda";
@@ -106,7 +96,7 @@ public class AgendaXPage extends MVCApplication
     // Session variable to store working values
     private Agenda _agenda;
     
-    @View( value = VIEW_MANAGE_AGENDAS )
+    @View( value = VIEW_MANAGE_AGENDAS, defaultView = true )
     public XPage getManageAgendas( HttpServletRequest request )
     {
         _agenda = null;
@@ -238,31 +228,20 @@ public class AgendaXPage extends MVCApplication
     }
     
     
-    @View( value = VIEW_LISTEVENT_AGENDA, defaultView = true )
-    public XPage getListEvents( HttpServletRequest request )
-    {
-        
-        OpenagendaService oas = new OpenagendaService();
-        
-        Map<String, Object> model = getModel(  );
-        model.put( MARK_EVENT_LIST, oas.getEventsAgenda("53528128"));
-
-        return getXPage( TEMPLATE_LIST_EVENTS, request.getLocale(  ), model );
-    }
-    
-    
     
     @View( value = VIEW_AGENDA_EVENTS )
     public XPage getAgendaEvents( HttpServletRequest request )
-    {
+    {           
+        int nId = Integer.parseInt( request.getParameter( PARAMETER_ID_AGENDA ) );
 
-        return getXPage( TEMPLATE_AGENDA_EVENTS, request.getLocale(  ));
+        if ( _agenda == null  || ( _agenda.getId( ) != nId ))
+        {
+            _agenda = AgendaHome.findByPrimaryKey( nId );
+        }
+
+        Map<String, Object> model = getModel(  );
+        model.put( MARK_AGENDA, _agenda );
+        return getXPage( TEMPLATE_AGENDA_EVENTS, request.getLocale(  ), model);
     }
     
-    @View( value = VIEW_AGENDA_EVENTS_PERIOD )
-    public XPage getAgendaEventsByPeriod( HttpServletRequest request )
-    {
-
-        return getXPage( TEMPLATE_AGENDA_EVENTS_PERIOD, request.getLocale(  ));
-    }
 }

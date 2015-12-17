@@ -45,6 +45,18 @@ public class AgendaBusinessTest extends LuteceTestCase
     private final static String NAME2 = "Name2";
     private final static String DESCRIPTION1 = "Description1";
     private final static String DESCRIPTION2 = "Description2";
+    private final static String EVENTSEMBEDDINGCODE1 = "EventsEmbeddingCode1";
+    private final static String EVENTSEMBEDDINGCODE2 = "EventsEmbeddingCode2";
+    private final static String MAPEMBEDDINGCODE1 = "MapEmbeddingCode1";
+    private final static String MAPEMBEDDINGCODE2 = "MapEmbeddingCode2";
+    private final static String SEARCHEMBEDDINGCODE1 = "SearchEmbeddingCode1";
+    private final static String SEARCHEMBEDDINGCODE2 = "SearchEmbeddingCode2";
+    private final static String CATEGORIESEMBEDDINGCODE1 = "CategoriesEmbeddingCode1";
+    private final static String CATEGORIESEMBEDDINGCODE2 = "CategoriesEmbeddingCode2";
+    private final static String TAGSEMBEDDINGCODE1 = "TagsEmbeddingCode1";
+    private final static String TAGSEMBEDDINGCODE2 = "TagsEmbeddingCode2";
+    private final static String CALENDAREMBEDDINGCODE1 = "CalendarEmbeddingCode1";
+    private final static String CALENDAREMBEDDINGCODE2 = "CalendarEmbeddingCode2";
 
     public void testBusiness(  )
     {
@@ -53,6 +65,12 @@ public class AgendaBusinessTest extends LuteceTestCase
         agenda.setUid( UID1 );
         agenda.setName( NAME1 );
         agenda.setDescription( DESCRIPTION1 );
+        agenda.setEventsEmbeddingCode( EVENTSEMBEDDINGCODE1 );
+        agenda.setMapEmbeddingCode( MAPEMBEDDINGCODE1 );
+        agenda.setSearchEmbeddingCode( SEARCHEMBEDDINGCODE1 );
+        agenda.setCategoriesEmbeddingCode( CATEGORIESEMBEDDINGCODE1 );
+        agenda.setTagsEmbeddingCode( TAGSEMBEDDINGCODE1 );
+        agenda.setCalendarEmbeddingCode( CALENDAREMBEDDINGCODE1 );
 
         // Create test
         AgendaHome.create( agenda );
@@ -60,16 +78,34 @@ public class AgendaBusinessTest extends LuteceTestCase
         assertEquals( agendaStored.getUid() , agenda.getUid( ) );
         assertEquals( agendaStored.getName() , agenda.getName( ) );
         assertEquals( agendaStored.getDescription() , agenda.getDescription( ) );
+        assertEquals( agendaStored.getEventsEmbeddingCode() , agenda.getEventsEmbeddingCode( ) );
+        assertEquals( agendaStored.getMapEmbeddingCode() , agenda.getMapEmbeddingCode( ) );
+        assertEquals( agendaStored.getSearchEmbeddingCode() , agenda.getSearchEmbeddingCode( ) );
+        assertEquals( agendaStored.getCategoriesEmbeddingCode() , agenda.getCategoriesEmbeddingCode( ) );
+        assertEquals( agendaStored.getTagsEmbeddingCode() , agenda.getTagsEmbeddingCode( ) );
+        assertEquals( agendaStored.getCalendarEmbeddingCode() , agenda.getCalendarEmbeddingCode( ) );
 
         // Update test
         agenda.setUid( UID2 );
         agenda.setName( NAME2 );
         agenda.setDescription( DESCRIPTION2 );
+        agenda.setEventsEmbeddingCode( EVENTSEMBEDDINGCODE2 );
+        agenda.setMapEmbeddingCode( MAPEMBEDDINGCODE2 );
+        agenda.setSearchEmbeddingCode( SEARCHEMBEDDINGCODE2 );
+        agenda.setCategoriesEmbeddingCode( CATEGORIESEMBEDDINGCODE2 );
+        agenda.setTagsEmbeddingCode( TAGSEMBEDDINGCODE2 );
+        agenda.setCalendarEmbeddingCode( CALENDAREMBEDDINGCODE2 );
         AgendaHome.update( agenda );
         agendaStored = AgendaHome.findByPrimaryKey( agenda.getId( ) );
         assertEquals( agendaStored.getUid() , agenda.getUid( ) );
         assertEquals( agendaStored.getName() , agenda.getName( ) );
         assertEquals( agendaStored.getDescription() , agenda.getDescription( ) );
+        assertEquals( agendaStored.getEventsEmbeddingCode() , agenda.getEventsEmbeddingCode( ) );
+        assertEquals( agendaStored.getMapEmbeddingCode() , agenda.getMapEmbeddingCode( ) );
+        assertEquals( agendaStored.getSearchEmbeddingCode() , agenda.getSearchEmbeddingCode( ) );
+        assertEquals( agendaStored.getCategoriesEmbeddingCode() , agenda.getCategoriesEmbeddingCode( ) );
+        assertEquals( agendaStored.getTagsEmbeddingCode() , agenda.getTagsEmbeddingCode( ) );
+        assertEquals( agendaStored.getCalendarEmbeddingCode() , agenda.getCalendarEmbeddingCode( ) );
 
         // List test
         AgendaHome.getAgendasList();
