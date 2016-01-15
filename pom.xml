@@ -10,7 +10,7 @@
     <groupId>fr.paris.lutece.plugins</groupId>
     <artifactId>plugin-openagenda</artifactId>
     <packaging>lutece-plugin</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Lutece openagenda plugin</name>
 
     <repositories>
@@ -39,13 +39,13 @@
     <properties>
         <componentName>openagenda</componentName>
         <jiraProjectName>OPENAGENDA</jiraProjectName>
-        <jiraComponentId></jiraComponentId>
+        <jiraComponentId />
     </properties>
 
     <scm>
         <connection>scm:git:https://github.com/lutece-platform/lutece-collab-plugin-openagenda.git</connection>
         <developerConnection>scm:git:https://github.com/lutece-platform/lutece-collab-plugin-openagenda.git</developerConnection>
         <url>https://github.com/lutece-platform/lutece-collab-plugin-openagenda.git</url>
-        <tag>HEAD</tag>
+        <tag>lutece-collab-plugin-openagenda-1.0.0</tag>
     </scm>
 </project>
