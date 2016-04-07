@@ -9,8 +9,26 @@ import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.portal.service.util.AppPropertiesService;
 import fr.paris.lutece.util.httpaccess.HttpAccess;
 import fr.paris.lutece.util.httpaccess.HttpAccessException;
+
 import java.util.HashMap;
 import java.util.Map;
+
+/* Example json from https://api.openagenda.com/v1/agendas/<UID>
+{
+   "code" : 200,
+   "success" : true,
+   "data" : {
+      "uid" : "58106757",
+      "updatedAt" : "2016-04-07 10:31:47",
+      "image" : "/images/",
+      "website" : "https://budgetparticipatif.paris.fr/bp/",
+      "title" : "Budget Participatif",
+      "url" : "http://openagenda.com/budget-participatif",
+      "description" : "Agenda du site budget participatif 2016"
+   }
+}
+*/
+
 
 /**
  *

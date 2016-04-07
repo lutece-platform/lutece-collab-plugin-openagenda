@@ -5,6 +5,8 @@
  */
 package fr.paris.lutece.plugins.openagenda.api.mapping;
 
+import java.util.List;
+
 /**
  *
  * @author mha
@@ -21,7 +23,7 @@ public class EventData {
     private Description description;
     private Freetext freeText;
     private Tags tags;
-    private String locations;
+    private List<locations> locations;
 
     public String getUid() {
         return uid;
@@ -103,11 +105,11 @@ public class EventData {
         this.tags = tags;
     }
     
-    public String getLocations() {
+    public List<locations> getLocations() {
         return locations;
     }
 
-    public void setLocations(String locations) {
+    public void setLocations(List<locations> locations) {
         this.locations = locations;
     }
     

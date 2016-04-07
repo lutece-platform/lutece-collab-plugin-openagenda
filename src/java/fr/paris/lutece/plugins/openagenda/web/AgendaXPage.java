@@ -35,11 +35,14 @@ package fr.paris.lutece.plugins.openagenda.web;
  
 import fr.paris.lutece.plugins.openagenda.business.Agenda;
 import fr.paris.lutece.plugins.openagenda.business.AgendaHome;
+import fr.paris.lutece.plugins.openagenda.service.OpenagendaService;
 import fr.paris.lutece.portal.web.xpages.XPage;
 import fr.paris.lutece.portal.util.mvc.xpage.MVCApplication;
 import fr.paris.lutece.portal.util.mvc.commons.annotations.View;
 import fr.paris.lutece.portal.util.mvc.xpage.annotations.Controller;
+
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest; 
 
 /**
@@ -56,6 +59,7 @@ public class AgendaXPage extends MVCApplication
     // Templates
     private static final String TEMPLATE_MANAGE_AGENDAS="/skin/plugins/openagenda/manage_agendas.html";
     private static final String TEMPLATE_AGENDA_EVENTS="/skin/plugins/openagenda/agenda_events.html";
+    private static final String TEMPLATE_AGENDA_API_EVENTS="/skin/plugins/openagenda/agenda_api_events.html";
     
     // Parameters
     private static final String PARAMETER_ID_AGENDA="id";
@@ -63,10 +67,12 @@ public class AgendaXPage extends MVCApplication
     // Markers
     private static final String MARK_AGENDA_LIST = "agenda_list";
     private static final String MARK_AGENDA = "agenda";
+    private static final String MARK_EVENT_LIST = "event_list";
     
     // Views
     private static final String VIEW_MANAGE_AGENDAS = "manageAgendas";
     private static final String VIEW_AGENDA_EVENTS = "agendaEvents";
+    private static final String VIEW_AGENDA_API_EVENTS = "agendaApiEvents";
     
     
     @View( value = VIEW_MANAGE_AGENDAS, defaultView = true )
@@ -89,4 +95,17 @@ public class AgendaXPage extends MVCApplication
         model.put( MARK_AGENDA, agenda );
         return getXPage( TEMPLATE_AGENDA_EVENTS, request.getLocale(  ), model);
     }
+
+    @View( value = VIEW_AGENDA_API_EVENTS )
+    public XPage getListEvents( HttpServletRequest request )
+    {
+        
+        OpenagendaService oas = new OpenagendaService();
+        
+        Map<String, Object> model = getModel(  );
+        model.put( MARK_EVENT_LIST, oas.getEventsAgenda("53528128"));
+
+        return getXPage( TEMPLATE_AGENDA_API_EVENTS, request.getLocale(  ), model );
+    }
+    
 }
