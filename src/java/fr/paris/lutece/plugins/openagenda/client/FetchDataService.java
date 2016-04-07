@@ -6,6 +6,7 @@
 package fr.paris.lutece.plugins.openagenda.client;
 
 import fr.paris.lutece.portal.service.util.AppLogService;
+import fr.paris.lutece.portal.service.util.AppPropertiesService;
 import fr.paris.lutece.util.httpaccess.HttpAccess;
 import fr.paris.lutece.util.httpaccess.HttpAccessException;
 import java.util.HashMap;
@@ -20,7 +21,9 @@ public class FetchDataService {
     private static final String urlBase = "https://api.openagenda.com/v1";
     private static final String urlPathAgenda = "/agendas";
     private static final String urlPathEvent = "/events";
-    private static final String key = "597f2f0f0000755f8b03f39707f807ed";
+    private static final String propertyKey = "openagenda.apiKey";
+    private static final String key = AppPropertiesService.getProperty( propertyKey,
+            "5c71c0bd2b998b34c16b2521c373674d");
     
     private static final String paramKey = "key";
     
