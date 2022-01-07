@@ -12,8 +12,10 @@ import fr.paris.lutece.portal.service.util.AppLogService;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.codehaus.jackson.map.DeserializationConfig;
-import org.codehaus.jackson.map.ObjectMapper;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 /**
  *
@@ -29,7 +31,7 @@ public class OpenagendaService {
         
         List<EventData> events = new ArrayList<>();
         
-        mapper.disable(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         String jsonResponse = fds.getEventsOfAgenda(idAgenda);
         
         Response response = null;
