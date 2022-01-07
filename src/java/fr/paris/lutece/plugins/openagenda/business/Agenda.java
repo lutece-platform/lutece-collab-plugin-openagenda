@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2015, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,44 +30,51 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * License 1.0
- */ 
+ */
 package fr.paris.lutece.plugins.openagenda.business;
+
+import java.io.Serializable;
 
 import javax.validation.constraints.*;
 
-
 /**
  * This is the business class for the object Agenda
- */ 
-public class Agenda
+ */
+public class Agenda implements Serializable
 {
-    // Variables declarations 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5040910478522372832L;
+
+	// Variables declarations
     private int _nId;
-    
+
     private int _nUid;
-    
+
     @NotEmpty( message = "#i18n{openagenda.validation.agenda.Name.notEmpty}" )
-    @Size( max = 50 , message = "#i18n{openagenda.validation.agenda.Name.size}" ) 
+    @Size( max = 50, message = "#i18n{openagenda.validation.agenda.Name.size}" )
     private String _strName;
-    
-    @Size( max = 255 , message = "#i18n{openagenda.validation.agenda.Description.size}" ) 
+
+    @Size( max = 255, message = "#i18n{openagenda.validation.agenda.Description.size}" )
     private String _strDescription;
-    
+
     @NotEmpty( message = "#i18n{openagenda.validation.agenda.EventsEmbeddingCode.notEmpty}" )
     private String _strEventsEmbeddingCode;
-    
+
     private String _strMapEmbeddingCode;
-    
+
     private String _strSearchEmbeddingCode;
-    
+
     private String _strCategoriesEmbeddingCode;
-    
+
     private String _strTagsEmbeddingCode;
-    
+
     private String _strCalendarEmbeddingCode;
 
     /**
      * Returns the Id
+     * 
      * @return The Id
      */
     public int getId( )
@@ -77,8 +84,10 @@ public class Agenda
 
     /**
      * Sets the Id
-     * @param nId The Id
-     */ 
+     * 
+     * @param nId
+     *            The Id
+     */
     public void setId( int nId )
     {
         _nId = nId;
@@ -86,6 +95,7 @@ public class Agenda
 
     /**
      * Returns the Uid
+     * 
      * @return The Uid
      */
     public int getUid( )
@@ -95,14 +105,18 @@ public class Agenda
 
     /**
      * Sets the Uid
-     * @param nUid The Uid
-     */ 
+     * 
+     * @param nUid
+     *            The Uid
+     */
     public void setUid( int nUid )
     {
         _nUid = nUid;
     }
+
     /**
      * Returns the Name
+     * 
      * @return The Name
      */
     public String getName( )
@@ -112,14 +126,18 @@ public class Agenda
 
     /**
      * Sets the Name
-     * @param strName The Name
-     */ 
+     * 
+     * @param strName
+     *            The Name
+     */
     public void setName( String strName )
     {
         _strName = strName;
     }
+
     /**
      * Returns the Description
+     * 
      * @return The Description
      */
     public String getDescription( )
@@ -129,14 +147,18 @@ public class Agenda
 
     /**
      * Sets the Description
-     * @param strDescription The Description
-     */ 
+     * 
+     * @param strDescription
+     *            The Description
+     */
     public void setDescription( String strDescription )
     {
         _strDescription = strDescription;
     }
+
     /**
      * Returns the EventsEmbeddingCode
+     * 
      * @return The EventsEmbeddingCode
      */
     public String getEventsEmbeddingCode( )
@@ -146,14 +168,18 @@ public class Agenda
 
     /**
      * Sets the EventsEmbeddingCode
-     * @param strEventsEmbeddingCode The EventsEmbeddingCode
-     */ 
+     * 
+     * @param strEventsEmbeddingCode
+     *            The EventsEmbeddingCode
+     */
     public void setEventsEmbeddingCode( String strEventsEmbeddingCode )
     {
         _strEventsEmbeddingCode = strEventsEmbeddingCode;
     }
+
     /**
      * Returns the MapEmbeddingCode
+     * 
      * @return The MapEmbeddingCode
      */
     public String getMapEmbeddingCode( )
@@ -163,14 +189,18 @@ public class Agenda
 
     /**
      * Sets the MapEmbeddingCode
-     * @param strMapEmbeddingCode The MapEmbeddingCode
-     */ 
+     * 
+     * @param strMapEmbeddingCode
+     *            The MapEmbeddingCode
+     */
     public void setMapEmbeddingCode( String strMapEmbeddingCode )
     {
         _strMapEmbeddingCode = strMapEmbeddingCode;
     }
+
     /**
      * Returns the SearchEmbeddingCode
+     * 
      * @return The SearchEmbeddingCode
      */
     public String getSearchEmbeddingCode( )
@@ -180,14 +210,18 @@ public class Agenda
 
     /**
      * Sets the SearchEmbeddingCode
-     * @param strSearchEmbeddingCode The SearchEmbeddingCode
-     */ 
+     * 
+     * @param strSearchEmbeddingCode
+     *            The SearchEmbeddingCode
+     */
     public void setSearchEmbeddingCode( String strSearchEmbeddingCode )
     {
         _strSearchEmbeddingCode = strSearchEmbeddingCode;
     }
+
     /**
      * Returns the CategoriesEmbeddingCode
+     * 
      * @return The CategoriesEmbeddingCode
      */
     public String getCategoriesEmbeddingCode( )
@@ -197,14 +231,18 @@ public class Agenda
 
     /**
      * Sets the CategoriesEmbeddingCode
-     * @param strCategoriesEmbeddingCode The CategoriesEmbeddingCode
-     */ 
+     * 
+     * @param strCategoriesEmbeddingCode
+     *            The CategoriesEmbeddingCode
+     */
     public void setCategoriesEmbeddingCode( String strCategoriesEmbeddingCode )
     {
         _strCategoriesEmbeddingCode = strCategoriesEmbeddingCode;
     }
+
     /**
      * Returns the TagsEmbeddingCode
+     * 
      * @return The TagsEmbeddingCode
      */
     public String getTagsEmbeddingCode( )
@@ -214,14 +252,18 @@ public class Agenda
 
     /**
      * Sets the TagsEmbeddingCode
-     * @param strTagsEmbeddingCode The TagsEmbeddingCode
-     */ 
+     * 
+     * @param strTagsEmbeddingCode
+     *            The TagsEmbeddingCode
+     */
     public void setTagsEmbeddingCode( String strTagsEmbeddingCode )
     {
         _strTagsEmbeddingCode = strTagsEmbeddingCode;
     }
+
     /**
      * Returns the CalendarEmbeddingCode
+     * 
      * @return The CalendarEmbeddingCode
      */
     public String getCalendarEmbeddingCode( )
@@ -231,8 +273,10 @@ public class Agenda
 
     /**
      * Sets the CalendarEmbeddingCode
-     * @param strCalendarEmbeddingCode The CalendarEmbeddingCode
-     */ 
+     * 
+     * @param strCalendarEmbeddingCode
+     *            The CalendarEmbeddingCode
+     */
     public void setCalendarEmbeddingCode( String strCalendarEmbeddingCode )
     {
         _strCalendarEmbeddingCode = strCalendarEmbeddingCode;

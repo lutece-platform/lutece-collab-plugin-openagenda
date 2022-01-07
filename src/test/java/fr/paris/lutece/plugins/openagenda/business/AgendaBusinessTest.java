@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2015, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,37 +31,35 @@
  *
  * License 1.0
  */
-
 package fr.paris.lutece.plugins.openagenda.business;
 
 import fr.paris.lutece.test.LuteceTestCase;
 
-
 public class AgendaBusinessTest extends LuteceTestCase
 {
-    private final static int UID1 = 1;
-    private final static int UID2 = 2;
-    private final static String NAME1 = "Name1";
-    private final static String NAME2 = "Name2";
-    private final static String DESCRIPTION1 = "Description1";
-    private final static String DESCRIPTION2 = "Description2";
-    private final static String EVENTSEMBEDDINGCODE1 = "EventsEmbeddingCode1";
-    private final static String EVENTSEMBEDDINGCODE2 = "EventsEmbeddingCode2";
-    private final static String MAPEMBEDDINGCODE1 = "MapEmbeddingCode1";
-    private final static String MAPEMBEDDINGCODE2 = "MapEmbeddingCode2";
-    private final static String SEARCHEMBEDDINGCODE1 = "SearchEmbeddingCode1";
-    private final static String SEARCHEMBEDDINGCODE2 = "SearchEmbeddingCode2";
-    private final static String CATEGORIESEMBEDDINGCODE1 = "CategoriesEmbeddingCode1";
-    private final static String CATEGORIESEMBEDDINGCODE2 = "CategoriesEmbeddingCode2";
-    private final static String TAGSEMBEDDINGCODE1 = "TagsEmbeddingCode1";
-    private final static String TAGSEMBEDDINGCODE2 = "TagsEmbeddingCode2";
-    private final static String CALENDAREMBEDDINGCODE1 = "CalendarEmbeddingCode1";
-    private final static String CALENDAREMBEDDINGCODE2 = "CalendarEmbeddingCode2";
+    private static final int UID1 = 1;
+    private static final int UID2 = 2;
+    private static final String NAME1 = "Name1";
+    private static final String NAME2 = "Name2";
+    private static final String DESCRIPTION1 = "Description1";
+    private static final String DESCRIPTION2 = "Description2";
+    private static final String EVENTSEMBEDDINGCODE1 = "EventsEmbeddingCode1";
+    private static final String EVENTSEMBEDDINGCODE2 = "EventsEmbeddingCode2";
+    private static final String MAPEMBEDDINGCODE1 = "MapEmbeddingCode1";
+    private static final String MAPEMBEDDINGCODE2 = "MapEmbeddingCode2";
+    private static final String SEARCHEMBEDDINGCODE1 = "SearchEmbeddingCode1";
+    private static final String SEARCHEMBEDDINGCODE2 = "SearchEmbeddingCode2";
+    private static final String CATEGORIESEMBEDDINGCODE1 = "CategoriesEmbeddingCode1";
+    private static final String CATEGORIESEMBEDDINGCODE2 = "CategoriesEmbeddingCode2";
+    private static final String TAGSEMBEDDINGCODE1 = "TagsEmbeddingCode1";
+    private static final String TAGSEMBEDDINGCODE2 = "TagsEmbeddingCode2";
+    private static final String CALENDAREMBEDDINGCODE1 = "CalendarEmbeddingCode1";
+    private static final String CALENDAREMBEDDINGCODE2 = "CalendarEmbeddingCode2";
 
-    public void testBusiness(  )
+    public void testBusiness( )
     {
         // Initialize an object
-        Agenda agenda = new Agenda();
+        Agenda agenda = new Agenda( );
         agenda.setUid( UID1 );
         agenda.setName( NAME1 );
         agenda.setDescription( DESCRIPTION1 );
@@ -75,15 +73,15 @@ public class AgendaBusinessTest extends LuteceTestCase
         // Create test
         AgendaHome.create( agenda );
         Agenda agendaStored = AgendaHome.findByPrimaryKey( agenda.getId( ) );
-        assertEquals( agendaStored.getUid() , agenda.getUid( ) );
-        assertEquals( agendaStored.getName() , agenda.getName( ) );
-        assertEquals( agendaStored.getDescription() , agenda.getDescription( ) );
-        assertEquals( agendaStored.getEventsEmbeddingCode() , agenda.getEventsEmbeddingCode( ) );
-        assertEquals( agendaStored.getMapEmbeddingCode() , agenda.getMapEmbeddingCode( ) );
-        assertEquals( agendaStored.getSearchEmbeddingCode() , agenda.getSearchEmbeddingCode( ) );
-        assertEquals( agendaStored.getCategoriesEmbeddingCode() , agenda.getCategoriesEmbeddingCode( ) );
-        assertEquals( agendaStored.getTagsEmbeddingCode() , agenda.getTagsEmbeddingCode( ) );
-        assertEquals( agendaStored.getCalendarEmbeddingCode() , agenda.getCalendarEmbeddingCode( ) );
+        assertEquals( agendaStored.getUid( ), agenda.getUid( ) );
+        assertEquals( agendaStored.getName( ), agenda.getName( ) );
+        assertEquals( agendaStored.getDescription( ), agenda.getDescription( ) );
+        assertEquals( agendaStored.getEventsEmbeddingCode( ), agenda.getEventsEmbeddingCode( ) );
+        assertEquals( agendaStored.getMapEmbeddingCode( ), agenda.getMapEmbeddingCode( ) );
+        assertEquals( agendaStored.getSearchEmbeddingCode( ), agenda.getSearchEmbeddingCode( ) );
+        assertEquals( agendaStored.getCategoriesEmbeddingCode( ), agenda.getCategoriesEmbeddingCode( ) );
+        assertEquals( agendaStored.getTagsEmbeddingCode( ), agenda.getTagsEmbeddingCode( ) );
+        assertEquals( agendaStored.getCalendarEmbeddingCode( ), agenda.getCalendarEmbeddingCode( ) );
 
         // Update test
         agenda.setUid( UID2 );
@@ -97,24 +95,24 @@ public class AgendaBusinessTest extends LuteceTestCase
         agenda.setCalendarEmbeddingCode( CALENDAREMBEDDINGCODE2 );
         AgendaHome.update( agenda );
         agendaStored = AgendaHome.findByPrimaryKey( agenda.getId( ) );
-        assertEquals( agendaStored.getUid() , agenda.getUid( ) );
-        assertEquals( agendaStored.getName() , agenda.getName( ) );
-        assertEquals( agendaStored.getDescription() , agenda.getDescription( ) );
-        assertEquals( agendaStored.getEventsEmbeddingCode() , agenda.getEventsEmbeddingCode( ) );
-        assertEquals( agendaStored.getMapEmbeddingCode() , agenda.getMapEmbeddingCode( ) );
-        assertEquals( agendaStored.getSearchEmbeddingCode() , agenda.getSearchEmbeddingCode( ) );
-        assertEquals( agendaStored.getCategoriesEmbeddingCode() , agenda.getCategoriesEmbeddingCode( ) );
-        assertEquals( agendaStored.getTagsEmbeddingCode() , agenda.getTagsEmbeddingCode( ) );
-        assertEquals( agendaStored.getCalendarEmbeddingCode() , agenda.getCalendarEmbeddingCode( ) );
+        assertEquals( agendaStored.getUid( ), agenda.getUid( ) );
+        assertEquals( agendaStored.getName( ), agenda.getName( ) );
+        assertEquals( agendaStored.getDescription( ), agenda.getDescription( ) );
+        assertEquals( agendaStored.getEventsEmbeddingCode( ), agenda.getEventsEmbeddingCode( ) );
+        assertEquals( agendaStored.getMapEmbeddingCode( ), agenda.getMapEmbeddingCode( ) );
+        assertEquals( agendaStored.getSearchEmbeddingCode( ), agenda.getSearchEmbeddingCode( ) );
+        assertEquals( agendaStored.getCategoriesEmbeddingCode( ), agenda.getCategoriesEmbeddingCode( ) );
+        assertEquals( agendaStored.getTagsEmbeddingCode( ), agenda.getTagsEmbeddingCode( ) );
+        assertEquals( agendaStored.getCalendarEmbeddingCode( ), agenda.getCalendarEmbeddingCode( ) );
 
         // List test
-        AgendaHome.getAgendasList();
+        AgendaHome.getAgendasList( );
 
         // Delete test
         AgendaHome.remove( agenda.getId( ) );
         agendaStored = AgendaHome.findByPrimaryKey( agenda.getId( ) );
         assertNull( agendaStored );
-        
+
     }
 
 }

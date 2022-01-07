@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,71 +42,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class AgendaData
 {
-	@JsonProperty("uid")
-	private int _nUid;
-	
-	@JsonProperty("slug")
-	private String _strSlug;
-	
-	@JsonProperty("title")
-	private String _strTitle;
-	
-	@JsonProperty("member")
-	private Member _member;
+    @JsonProperty( "uid" )
+    private int _nUid;
 
-	/**
-	 * @return the uid
-	 */
-	public int getUid() {
-		return _nUid;
-	}
+    @JsonProperty( "slug" )
+    private String _strSlug;
 
-	/**
-	 * @param nUid the uid to set
-	 */
-	public void setUid(int nUid) {
-		this._nUid = nUid;
-	}
+    @JsonProperty( "title" )
+    private String _strTitle;
 
-	/**
-	 * @return the slug
-	 */
-	public String getSlug() {
-		return _strSlug;
-	}
+    @JsonProperty( "member" )
+    private Member _member;
 
-	/**
-	 * @param strSlug the slug to set
-	 */
-	public void setSlug(String strSlug) {
-		this._strSlug = strSlug;
-	}
+    /**
+     * @return the uid
+     */
+    public int getUid( )
+    {
+        return _nUid;
+    }
 
-	/**
-	 * @return the title
-	 */
-	public String getTitle() {
-		return _strTitle;
-	}
+    /**
+     * @param nUid
+     *            the uid to set
+     */
+    public void setUid( int nUid )
+    {
+        this._nUid = nUid;
+    }
 
-	/**
-	 * @param strTitle the title to set
-	 */
-	public void setTitle(String strTitle) {
-		this._strTitle = strTitle;
-	}
+    /**
+     * @return the slug
+     */
+    public String getSlug( )
+    {
+        return _strSlug;
+    }
 
-	/**
-	 * @return the member
-	 */
-	public Member getMember() {
-		return _member;
-	}
+    /**
+     * @param strSlug
+     *            the slug to set
+     */
+    public void setSlug( String strSlug )
+    {
+        this._strSlug = strSlug;
+    }
 
-	/**
-	 * @param member the member to set
-	 */
-	public void setMember(Member member) {
-		this._member = member;
-	}
+    /**
+     * @return the title
+     */
+    public String getTitle( )
+    {
+        return _strTitle;
+    }
+
+    /**
+     * @param strTitle
+     *            the title to set
+     */
+    public void setTitle( String strTitle )
+    {
+        this._strTitle = strTitle;
+    }
+
+    /**
+     * @return the member
+     */
+    public Member getMember( )
+    {
+        return _member;
+    }
+
+    /**
+     * @param member
+     *            the member to set
+     */
+    public void setMember( Member member )
+    {
+        this._member = member;
+    }
 }

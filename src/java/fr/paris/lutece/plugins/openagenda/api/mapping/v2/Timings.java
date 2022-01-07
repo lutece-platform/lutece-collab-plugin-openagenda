@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,38 +42,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Timings
 {
-	@JsonProperty("begin")
-	private String _strBegin;
-	
-	@JsonProperty("end")
-	private String _strEnd;
+    @JsonProperty( "begin" )
+    private String _strBegin;
 
-	/**
-	 * @return the begin
-	 */
-	public String getBegin() {
-		return _strBegin;
-	}
+    @JsonProperty( "end" )
+    private String _strEnd;
 
-	/**
-	 * @param strBegin the begin to set
-	 */
-	public void setBegin(String strBegin) {
-		this._strBegin = strBegin;
-	}
+    /**
+     * @return the begin
+     */
+    public String getBegin( )
+    {
+        return _strBegin;
+    }
 
-	/**
-	 * @return the end
-	 */
-	public String getEnd() {
-		return _strEnd;
-	}
+    /**
+     * @param strBegin
+     *            the begin to set
+     */
+    public void setBegin( String strBegin )
+    {
+        this._strBegin = strBegin;
+    }
 
-	/**
-	 * @param strEnd the end to set
-	 */
-	public void setEnd(String strEnd) {
-		this._strEnd = strEnd;
-	}
+    /**
+     * @return the end
+     */
+    public String getEnd( )
+    {
+        return _strEnd;
+    }
+
+    /**
+     * @param strEnd
+     *            the end to set
+     */
+    public void setEnd( String strEnd )
+    {
+        this._strEnd = strEnd;
+    }
 
 }

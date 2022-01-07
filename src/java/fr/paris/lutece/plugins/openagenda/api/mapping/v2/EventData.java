@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.openagenda.api.mapping.v2;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,396 +45,485 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class EventData
 {
-	
-	@JsonProperty("uid")
-	private int _nUid;
-	
-	@JsonProperty("title")
-	private Multilingue _title;
-	
-	@JsonProperty("description")
-	private Multilingue _description;
 
-	@JsonProperty("longDescription")
-	private Multilingue _longDescription;
+    @JsonProperty( "uid" )
+    private int _nUid;
 
-	@JsonProperty("conditions")
-	private Multilingue _conditions;
-	
-	@JsonProperty("keywords")
-	private Keywords _keywords;
-	
-	@JsonProperty("image")
-	private Image _image;
-	
-	@JsonProperty("imageCredits")
-	private String _strImageCredits;
-	
-	@JsonProperty("registration")
-	private List<Registration> _listRegistration;
-	
-	@JsonProperty("accessibility")
-	private Accessibility _accessibility;
-	
-	@JsonProperty("timings")
-	private List<Timings> _listTimings;
-	
-	@JsonProperty("age")
-	private Age _age;
-	
-	@JsonProperty("locationUid")
-	private int _nLocationUid;
-	
-	@JsonProperty("attendanceMode")
-	private int _nAttendanceMode;
-	
-	@JsonProperty("onlineAccessLink")
-	private String _strOnlineAccessLink;
-	
-	@JsonProperty("links")
-	private List<Links> _listLinks;
-	
-	@JsonProperty("timezone")
-	private String _strTimezone;
-	
-	@JsonProperty("state")
-	private int _nState;
-	
-	@JsonProperty("createdAt")
-	private String _strCreatedAt;
-	
-	@JsonProperty("updatedAt")
-	private String _strUpdatedAt;
+    @JsonProperty( "title" )
+    private Multilingue _title;
 
-	@JsonProperty("location")
-	private LocationData _location;
-	
-	@JsonProperty("slug")
-	private String _strSlug;
-	
-	@JsonProperty("originAgenda")
-	private AgendaData _originAgenda;
-	
+
+    @JsonProperty( "description" )
+    private Multilingue _description;
+
+    @JsonProperty( "longDescription" )
+    private Multilingue _longDescription;
+
+    @JsonProperty( "conditions" )
+    private Multilingue _conditions;
+
+    @JsonProperty( "keywords" )
+    private Keywords _keywords;
+    
+	@JsonProperty( "dateRange" )
+	private Multilingue _dateRange;
+
+    @JsonProperty( "image" )
+    private Image _image;
+
+    @JsonProperty( "imageCredits" )
+    private String _strImageCredits;
+
+    @JsonProperty( "registration" )
+    private List<Registration> _listRegistration;
+
+    @JsonProperty( "accessibility" )
+    private Accessibility _accessibility;
+
+    @JsonProperty( "timings" )
+    private List<Timings> _listTimings;
+
+    @JsonProperty( "age" )
+    private Age _age;
+
+    @JsonProperty( "locationUid" )
+    private int _nLocationUid;
+
+    @JsonProperty( "attendanceMode" )
+    private int _nAttendanceMode;
+
+    @JsonProperty( "onlineAccessLink" )
+    private String _strOnlineAccessLink;
+
+    @JsonProperty( "links" )
+    private List<Links> _listLinks;
+
+    @JsonProperty( "timezone" )
+    private String _strTimezone;
+
+    @JsonProperty( "state" )
+    private int _nState;
+
+    @JsonProperty( "createdAt" )
+    private String _strCreatedAt;
+
+    @JsonProperty( "updatedAt" )
+    private String _strUpdatedAt;
+
+    @JsonProperty( "location" )
+    private LocationData _location;
+
+    @JsonProperty( "slug" )
+    private String _strSlug;
+
+    @JsonProperty( "originAgenda" )
+    private AgendaData _originAgenda;
+
+    /**
+     * @return the uid
+     */
+    public int getUid( )
+    {
+        return _nUid;
+    }
+
+    /**
+     * @param nUid
+     *            the uid to set
+     */
+    public void setUid( int nUid )
+    {
+        this._nUid = nUid;
+    }
+
+    /**
+     * @return the title
+     */
+    public Multilingue getTitle( )
+    {
+        return _title;
+    }
+
+    /**
+     * @param title
+     *            the title to set
+     */
+    public void setTitle( Multilingue title )
+    {
+        this._title = title;
+    }
+
+    /**
+     * @return the description
+     */
+    public Multilingue getDescription( )
+    {
+        return _description;
+    }
+
+    /**
+     * @param description
+     *            the description to set
+     */
+    public void setDescription( Multilingue description )
+    {
+        this._description = description;
+    }
+
+    /**
+     * @return the longDescription
+     */
+    public Multilingue getLongDescription( )
+    {
+        return _longDescription;
+    }
+
+    /**
+     * @param longDescription
+     *            the longDescription to set
+     */
+    public void setLongDescription( Multilingue longDescription )
+    {
+        this._longDescription = longDescription;
+    }
+
+    /**
+     * @return the conditions
+     */
+    public Multilingue getConditions( )
+    {
+        return _conditions;
+    }
+
+    /**
+     * @param conditions
+     *            the conditions to set
+     */
+    public void setConditions( Multilingue conditions )
+    {
+        this._conditions = conditions;
+    }
+
+    /**
+     * @return the keywords
+     */
+    public Keywords getKeywords( )
+    {
+        return _keywords;
+    }
+
+    /**
+     * @param keywords
+     *            the keywords to set
+     */
+    public void setKeywords( Keywords keywords )
+    {
+        this._keywords = keywords;
+    }
+    
 	/**
-	 * @return the uid
+	 * @return the _dateRange
 	 */
-	public int getUid() {
-		return _nUid;
+	public Multilingue getDateRange( )
+	{
+		return _dateRange;
 	}
 
 	/**
-	 * @param nUid the uid to set
+	 * @param _dateRange the _dateRange to set
 	 */
-	public void setUid(int nUid) {
-		this._nUid = nUid;
+	public void setDateRange( Multilingue dateRange )
+	{
+		this._dateRange = dateRange;
 	}
 
-	/**
-	 * @return the title
-	 */
-	public Multilingue getTitle() {
-		return _title;
-	}
+    /**
+     * @return the image
+     */
+    public Image getImage( )
+    {
+        return _image;
+    }
 
-	/**
-	 * @param title the title to set
-	 */
-	public void setTitle(Multilingue title) {
-		this._title = title;
-	}
+    /**
+     * @param image
+     *            the image to set
+     */
+    public void setImage( Image image )
+    {
+        this._image = image;
+    }
 
-	/**
-	 * @return the description
-	 */
-	public Multilingue getDescription() {
-		return _description;
-	}
+    /**
+     * @return the imageCredits
+     */
+    public String getImageCredits( )
+    {
+        return _strImageCredits;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(Multilingue description) {
-		this._description = description;
-	}
+    /**
+     * @param strImageCredits
+     *            the imageCredits to set
+     */
+    public void setImageCredits( String strImageCredits )
+    {
+        this._strImageCredits = strImageCredits;
+    }
 
-	/**
-	 * @return the longDescription
-	 */
-	public Multilingue getLongDescription() {
-		return _longDescription;
-	}
+    /**
+     * @return the registration
+     */
+    public List<Registration> getRegistration( )
+    {
+        return Collections.unmodifiableList( _listRegistration );
+    }
 
-	/**
-	 * @param longDescription the longDescription to set
-	 */
-	public void setLongDescription(Multilingue longDescription) {
-		this._longDescription = longDescription;
-	}
+    /**
+     * @param listRegistration
+     *            the registration to set
+     */
+    public void setRegistration( List<Registration> listRegistration )
+    {
+        this._listRegistration = Collections.unmodifiableList( listRegistration );
+    }
 
-	/**
-	 * @return the conditions
-	 */
-	public Multilingue getConditions() {
-		return _conditions;
-	}
+    /**
+     * @return the accessibility
+     */
+    public Accessibility getAccessibility( )
+    {
+        return _accessibility;
+    }
 
-	/**
-	 * @param conditions the conditions to set
-	 */
-	public void setConditions(Multilingue conditions) {
-		this._conditions = conditions;
-	}
+    /**
+     * @param accessibility
+     *            the accessibility to set
+     */
+    public void setAccessibility( Accessibility accessibility )
+    {
+        this._accessibility = accessibility;
+    }
 
-	/**
-	 * @return the keywords
-	 */
-	public Keywords getKeywords() {
-		return _keywords;
-	}
+    /**
+     * @return the timings
+     */
+    public List<Timings> getTimings( )
+    {
+        return Collections.unmodifiableList( _listTimings );
+    }
 
-	/**
-	 * @param keywords the keywords to set
-	 */
-	public void setKeywords(Keywords keywords) {
-		this._keywords = keywords;
-	}
+    /**
+     * @param listTimings
+     *            the timings to set
+     */
+    public void setTimings( List<Timings> listTimings )
+    {
+        this._listTimings = Collections.unmodifiableList( listTimings );
+    }
 
-	/**
-	 * @return the image
-	 */
-	public Image getImage() {
-		return _image;
-	}
+    /**
+     * @return the age
+     */
+    public Age getAge( )
+    {
+        return _age;
+    }
 
-	/**
-	 * @param image the image to set
-	 */
-	public void setImage(Image image) {
-		this._image = image;
-	}
+    /**
+     * @param age
+     *            the age to set
+     */
+    public void setAge( Age age )
+    {
+        this._age = age;
+    }
 
-	/**
-	 * @return the imageCredits
-	 */
-	public String getImageCredits() {
-		return _strImageCredits;
-	}
+    /**
+     * @return the locationUid
+     */
+    public int getLocationUid( )
+    {
+        return _nLocationUid;
+    }
 
-	/**
-	 * @param strImageCredits the imageCredits to set
-	 */
-	public void setImageCredits(String strImageCredits) {
-		this._strImageCredits = strImageCredits;
-	}
+    /**
+     * @param nLocationUid
+     *            the locationUid to set
+     */
+    public void setLocationUid( int nLocationUid )
+    {
+        this._nLocationUid = nLocationUid;
+    }
 
-	/**
-	 * @return the registration
-	 */
-	public List<Registration> getRegistration() {
-		return _listRegistration;
-	}
+    /**
+     * @return the attendanceMode
+     */
+    public int getAttendanceMode( )
+    {
+        return _nAttendanceMode;
+    }
 
-	/**
-	 * @param listRegistration the registration to set
-	 */
-	public void setRegistration(List<Registration> listRegistration) {
-		this._listRegistration = listRegistration;
-	}
+    /**
+     * @param nAttendanceMode
+     *            the attendanceMode to set
+     */
+    public void setAttendanceMode( int nAttendanceMode )
+    {
+        this._nAttendanceMode = nAttendanceMode;
+    }
 
-	/**
-	 * @return the accessibility
-	 */
-	public Accessibility getAccessibility() {
-		return _accessibility;
-	}
+    /**
+     * @return the onlineAccessLink
+     */
+    public String getOnlineAccessLink( )
+    {
+        return _strOnlineAccessLink;
+    }
 
-	/**
-	 * @param accessibility the accessibility to set
-	 */
-	public void setAccessibility(Accessibility accessibility) {
-		this._accessibility = accessibility;
-	}
+    /**
+     * @param strOnlineAccessLink
+     *            the onlineAccessLink to set
+     */
+    public void setOnlineAccessLink( String strOnlineAccessLink )
+    {
+        this._strOnlineAccessLink = strOnlineAccessLink;
+    }
 
-	/**
-	 * @return the timings
-	 */
-	public List<Timings> getTimings() {
-		return _listTimings;
-	}
+    /**
+     * @return the links
+     */
+    public List<Links> getLinks( )
+    {
+        return Collections.unmodifiableList( _listLinks );
+    }
 
-	/**
-	 * @param listTimings the timings to set
-	 */
-	public void setTimings(List<Timings> listTimings) {
-		this._listTimings = listTimings;
-	}
+    /**
+     * @param listLinks
+     *            the links to set
+     */
+    public void setLinks( List<Links> listLinks )
+    {
+        this._listLinks = Collections.unmodifiableList( listLinks );
+    }
 
-	/**
-	 * @return the age
-	 */
-	public Age getAge() {
-		return _age;
-	}
+    /**
+     * @return the timezone
+     */
+    public String getTimezone( )
+    {
+        return _strTimezone;
+    }
 
-	/**
-	 * @param age the age to set
-	 */
-	public void setAge(Age age) {
-		this._age = age;
-	}
+    /**
+     * @param strTimezone
+     *            the timezone to set
+     */
+    public void setTimezone( String strTimezone )
+    {
+        this._strTimezone = strTimezone;
+    }
 
-	/**
-	 * @return the locationUid
-	 */
-	public int getLocationUid() {
-		return _nLocationUid;
-	}
+    /**
+     * @return the state
+     */
+    public int getState( )
+    {
+        return _nState;
+    }
 
-	/**
-	 * @param nLocationUid the locationUid to set
-	 */
-	public void setLocationUid(int nLocationUid) {
-		this._nLocationUid = nLocationUid;
-	}
+    /**
+     * @param nState
+     *            the state to set
+     */
+    public void setState( int nState )
+    {
+        this._nState = nState;
+    }
 
-	/**
-	 * @return the attendanceMode
-	 */
-	public int getAttendanceMode() {
-		return _nAttendanceMode;
-	}
+    /**
+     * @return the createdAt
+     */
+    public String getCreatedAt( )
+    {
+        return _strCreatedAt;
+    }
 
-	/**
-	 * @param nAttendanceMode the attendanceMode to set
-	 */
-	public void setAttendanceMode(int nAttendanceMode) {
-		this._nAttendanceMode = nAttendanceMode;
-	}
+    /**
+     * @param strCreatedAt
+     *            the createdAt to set
+     */
+    public void setCreatedAt( String strCreatedAt )
+    {
+        this._strCreatedAt = strCreatedAt;
+    }
 
-	/**
-	 * @return the onlineAccessLink
-	 */
-	public String getOnlineAccessLink() {
-		return _strOnlineAccessLink;
-	}
+    /**
+     * @return the updatedAt
+     */
+    public String getUpdatedAt( )
+    {
+        return _strUpdatedAt;
+    }
 
-	/**
-	 * @param strOnlineAccessLink the onlineAccessLink to set
-	 */
-	public void setOnlineAccessLink(String strOnlineAccessLink) {
-		this._strOnlineAccessLink = strOnlineAccessLink;
-	}
+    /**
+     * @param strUpdatedAt
+     *            the updatedAt to set
+     */
+    public void setUpdatedAt( String strUpdatedAt )
+    {
+        this._strUpdatedAt = strUpdatedAt;
+    }
 
-	/**
-	 * @return the links
-	 */
-	public List<Links> getLinks() {
-		return _listLinks;
-	}
+    /**
+     * @return the location
+     */
+    public LocationData getLocation( )
+    {
+        return _location;
+    }
 
-	/**
-	 * @param listLinks the links to set
-	 */
-	public void setLinks(List<Links> listLinks) {
-		this._listLinks = listLinks;
-	}
+    /**
+     * @param location
+     *            the location to set
+     */
+    public void setLocation( LocationData location )
+    {
+        this._location = location;
+    }
 
-	/**
-	 * @return the timezone
-	 */
-	public String getTimezone() {
-		return _strTimezone;
-	}
+    /**
+     * @return the slug
+     */
+    public String getSlug( )
+    {
+        return _strSlug;
+    }
 
-	/**
-	 * @param strTimezone the timezone to set
-	 */
-	public void setTimezone(String strTimezone) {
-		this._strTimezone = strTimezone;
-	}
+    /**
+     * @param strSlug
+     *            the slug to set
+     */
+    public void setSlug( String strSlug )
+    {
+        this._strSlug = strSlug;
+    }
 
-	/**
-	 * @return the state
-	 */
-	public int getState() {
-		return _nState;
-	}
+    /**
+     * @return the originAgenda
+     */
+    public AgendaData getOriginAgenda( )
+    {
+        return _originAgenda;
+    }
 
-	/**
-	 * @param nState the state to set
-	 */
-	public void setState(int nState) {
-		this._nState = nState;
-	}
-
-	/**
-	 * @return the createdAt
-	 */
-	public String getCreatedAt() {
-		return _strCreatedAt;
-	}
-
-	/**
-	 * @param strCreatedAt the createdAt to set
-	 */
-	public void setCreatedAt(String strCreatedAt) {
-		this._strCreatedAt = strCreatedAt;
-	}
-
-	/**
-	 * @return the updatedAt
-	 */
-	public String getUpdatedAt() {
-		return _strUpdatedAt;
-	}
-
-	/**
-	 * @param strUpdatedAt the updatedAt to set
-	 */
-	public void setUpdatedAt(String strUpdatedAt) {
-		this._strUpdatedAt = strUpdatedAt;
-	}
-
-	/**
-	 * @return the location
-	 */
-	public LocationData getLocation() {
-		return _location;
-	}
-
-	/**
-	 * @param location the location to set
-	 */
-	public void setLocation(LocationData location) {
-		this._location = location;
-	}
-
-	/**
-	 * @return the slug
-	 */
-	public String getSlug() {
-		return _strSlug;
-	}
-
-	/**
-	 * @param strSlug the slug to set
-	 */
-	public void setSlug(String strSlug) {
-		this._strSlug = strSlug;
-	}
-
-	/**
-	 * @return the originAgenda
-	 */
-	public AgendaData getOriginAgenda() {
-		return _originAgenda;
-	}
-
-	/**
-	 * @param originAgenda the originAgenda to set
-	 */
-	public void setOriginAgenda(AgendaData originAgenda) {
-		this._originAgenda = originAgenda;
-	}
+    /**
+     * @param originAgenda
+     *            the originAgenda to set
+     */
+    public void setOriginAgenda( AgendaData originAgenda )
+    {
+        this._originAgenda = originAgenda;
+    }
 
 }

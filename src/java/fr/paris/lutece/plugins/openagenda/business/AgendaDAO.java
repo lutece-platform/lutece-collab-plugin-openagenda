@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2015, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -7,15 +7,15 @@
  * are met:
  *
  *  1. Redistributions of source code must retain the above copyright notice
- *	 and the following disclaimer.
+ *     and the following disclaimer.
  *
  *  2. Redistributions in binary form must reproduce the above copyright notice
- *	 and the following disclaimer in the documentation and/or other materials
- *	 provided with the distribution.
+ *     and the following disclaimer in the documentation and/or other materials
+ *     provided with the distribution.
  *
  *  3. Neither the name of 'Mairie de Paris' nor 'Lutece' nor the names of its
- *	 contributors may be used to endorse or promote products derived from
- *	 this software without specific prior written permission.
+ *     contributors may be used to endorse or promote products derived from
+ *     this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -31,7 +31,6 @@
  *
  * License 1.0
  */
-
 
 package fr.paris.lutece.plugins.openagenda.business;
 
@@ -58,24 +57,28 @@ public final class AgendaDAO implements IAgendaDAO
 
     /**
      * Generates a new primary key
-     * @param plugin The Plugin
+     * 
+     * @param plugin
+     *            The Plugin
      * @return The new primary key
      */
-    public int newPrimaryKey( Plugin plugin)
+    public int newPrimaryKey( Plugin plugin )
     {
-        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_NEW_PK , plugin  );
-        daoUtil.executeQuery( );
-
-        int nKey = 1;
-
-        if( daoUtil.next( ) )
+        try( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_NEW_PK, plugin ) )
         {
-                nKey = daoUtil.getInt( 1 ) + 1;
+	        daoUtil.executeQuery( );
+	
+	        int nKey = 1;
+	
+	        if ( daoUtil.next( ) )
+	        {
+	            nKey = daoUtil.getInt( 1 ) + 1;
+	        }
+	
+	        daoUtil.free( );
+	
+	        return nKey;
         }
-
-        daoUtil.free();
-
-        return nKey;
     }
 
     /**
@@ -84,23 +87,24 @@ public final class AgendaDAO implements IAgendaDAO
     @Override
     public void insert( Agenda agenda, Plugin plugin )
     {
-        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_INSERT, plugin );
-
-        agenda.setId( newPrimaryKey( plugin ) );
-
-        daoUtil.setInt( 1, agenda.getId( ) );
-        daoUtil.setInt( 2, agenda.getUid( ) );
-        daoUtil.setString( 3, agenda.getName( ) );
-        daoUtil.setString( 4, agenda.getDescription( ) );
-        daoUtil.setString( 5, agenda.getEventsEmbeddingCode( ) );
-        daoUtil.setString( 6, agenda.getMapEmbeddingCode( ) );
-        daoUtil.setString( 7, agenda.getSearchEmbeddingCode( ) );
-        daoUtil.setString( 8, agenda.getCategoriesEmbeddingCode( ) );
-        daoUtil.setString( 9, agenda.getTagsEmbeddingCode( ) );
-        daoUtil.setString( 10, agenda.getCalendarEmbeddingCode( ) );
-
-        daoUtil.executeUpdate( );
-        daoUtil.free( );
+        try( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_INSERT, plugin ) )
+        {
+	        agenda.setId( newPrimaryKey( plugin ) );
+	
+	        daoUtil.setInt( 1, agenda.getId( ) );
+	        daoUtil.setInt( 2, agenda.getUid( ) );
+	        daoUtil.setString( 3, agenda.getName( ) );
+	        daoUtil.setString( 4, agenda.getDescription( ) );
+	        daoUtil.setString( 5, agenda.getEventsEmbeddingCode( ) );
+	        daoUtil.setString( 6, agenda.getMapEmbeddingCode( ) );
+	        daoUtil.setString( 7, agenda.getSearchEmbeddingCode( ) );
+	        daoUtil.setString( 8, agenda.getCategoriesEmbeddingCode( ) );
+	        daoUtil.setString( 9, agenda.getTagsEmbeddingCode( ) );
+	        daoUtil.setString( 10, agenda.getCalendarEmbeddingCode( ) );
+	
+	        daoUtil.executeUpdate( );
+	        daoUtil.free( );
+        }
     }
 
     /**
@@ -109,29 +113,31 @@ public final class AgendaDAO implements IAgendaDAO
     @Override
     public Agenda load( int nKey, Plugin plugin )
     {
-        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_SELECT, plugin );
-        daoUtil.setInt( 1 , nKey );
-        daoUtil.executeQuery( );
-
-        Agenda agenda = null;
-
-        if ( daoUtil.next( ) )
+        try( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_SELECT, plugin ) )
         {
-            agenda = new Agenda();
-            agenda.setId( daoUtil.getInt( 1 ) );
-            agenda.setUid( daoUtil.getInt( 2 ) );
-            agenda.setName( daoUtil.getString( 3 ) );
-            agenda.setDescription( daoUtil.getString( 4 ) );
-            agenda.setEventsEmbeddingCode( daoUtil.getString( 5 ) );
-            agenda.setMapEmbeddingCode( daoUtil.getString( 6 ) );
-            agenda.setSearchEmbeddingCode( daoUtil.getString( 7 ) );
-            agenda.setCategoriesEmbeddingCode( daoUtil.getString( 8 ) );
-            agenda.setTagsEmbeddingCode( daoUtil.getString( 9 ) );
-            agenda.setCalendarEmbeddingCode( daoUtil.getString( 10 ) );
+	        daoUtil.setInt( 1, nKey );
+	        daoUtil.executeQuery( );
+	
+	        Agenda agenda = null;
+	
+	        if ( daoUtil.next( ) )
+	        {
+	            agenda = new Agenda( );
+	            agenda.setId( daoUtil.getInt( 1 ) );
+	            agenda.setUid( daoUtil.getInt( 2 ) );
+	            agenda.setName( daoUtil.getString( 3 ) );
+	            agenda.setDescription( daoUtil.getString( 4 ) );
+	            agenda.setEventsEmbeddingCode( daoUtil.getString( 5 ) );
+	            agenda.setMapEmbeddingCode( daoUtil.getString( 6 ) );
+	            agenda.setSearchEmbeddingCode( daoUtil.getString( 7 ) );
+	            agenda.setCategoriesEmbeddingCode( daoUtil.getString( 8 ) );
+	            agenda.setTagsEmbeddingCode( daoUtil.getString( 9 ) );
+	            agenda.setCalendarEmbeddingCode( daoUtil.getString( 10 ) );
+	        }
+	
+	        daoUtil.free( );
+	        return agenda;
         }
-
-        daoUtil.free( );
-        return agenda;
     }
 
     /**
@@ -140,10 +146,12 @@ public final class AgendaDAO implements IAgendaDAO
     @Override
     public void delete( int nKey, Plugin plugin )
     {
-        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_DELETE, plugin );
-        daoUtil.setInt( 1 , nKey );
-        daoUtil.executeUpdate( );
-        daoUtil.free( );
+        try( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_DELETE, plugin ) )
+        {
+	        daoUtil.setInt( 1, nKey );
+	        daoUtil.executeUpdate( );
+	        daoUtil.free( );
+        }
     }
 
     /**
@@ -152,22 +160,23 @@ public final class AgendaDAO implements IAgendaDAO
     @Override
     public void store( Agenda agenda, Plugin plugin )
     {
-        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_UPDATE, plugin );
-        
-        daoUtil.setInt( 1, agenda.getId( ) );
-        daoUtil.setInt( 2, agenda.getUid( ) );
-        daoUtil.setString( 3, agenda.getName( ) );
-        daoUtil.setString( 4, agenda.getDescription( ) );
-        daoUtil.setString( 5, agenda.getEventsEmbeddingCode( ) );
-        daoUtil.setString( 6, agenda.getMapEmbeddingCode( ) );
-        daoUtil.setString( 7, agenda.getSearchEmbeddingCode( ) );
-        daoUtil.setString( 8, agenda.getCategoriesEmbeddingCode( ) );
-        daoUtil.setString( 9, agenda.getTagsEmbeddingCode( ) );
-        daoUtil.setString( 10, agenda.getCalendarEmbeddingCode( ) );
-        daoUtil.setInt( 11, agenda.getId( ) );
-
-        daoUtil.executeUpdate( );
-        daoUtil.free( );
+        try ( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_UPDATE, plugin ) )
+        {
+	        daoUtil.setInt( 1, agenda.getId( ) );
+	        daoUtil.setInt( 2, agenda.getUid( ) );
+	        daoUtil.setString( 3, agenda.getName( ) );
+	        daoUtil.setString( 4, agenda.getDescription( ) );
+	        daoUtil.setString( 5, agenda.getEventsEmbeddingCode( ) );
+	        daoUtil.setString( 6, agenda.getMapEmbeddingCode( ) );
+	        daoUtil.setString( 7, agenda.getSearchEmbeddingCode( ) );
+	        daoUtil.setString( 8, agenda.getCategoriesEmbeddingCode( ) );
+	        daoUtil.setString( 9, agenda.getTagsEmbeddingCode( ) );
+	        daoUtil.setString( 10, agenda.getCalendarEmbeddingCode( ) );
+	        daoUtil.setInt( 11, agenda.getId( ) );
+	
+	        daoUtil.executeUpdate( );
+	        daoUtil.free( );
+        }
     }
 
     /**
@@ -176,48 +185,52 @@ public final class AgendaDAO implements IAgendaDAO
     @Override
     public Collection<Agenda> selectAgendasList( Plugin plugin )
     {
-        Collection<Agenda> agendaList = new ArrayList<Agenda>(  );
-        DAOUtil daoUtil = new DAOUtil( SQL_QUERY_SELECTALL, plugin );
-        daoUtil.executeQuery(  );
-
-        while ( daoUtil.next(  ) )
+        Collection<Agenda> agendaList = new ArrayList<>( );
+        try( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_SELECTALL, plugin ) )
         {
-            Agenda agenda = new Agenda(  );
-            
-            agenda.setId( daoUtil.getInt( 1 ) );
-                agenda.setUid( daoUtil.getInt( 2 ) );
-                agenda.setName( daoUtil.getString( 3 ) );
-                agenda.setDescription( daoUtil.getString( 4 ) );
-                agenda.setEventsEmbeddingCode( daoUtil.getString( 5 ) );
-                agenda.setMapEmbeddingCode( daoUtil.getString( 6 ) );
-                agenda.setSearchEmbeddingCode( daoUtil.getString( 7 ) );
-                agenda.setCategoriesEmbeddingCode( daoUtil.getString( 8 ) );
-                agenda.setTagsEmbeddingCode( daoUtil.getString( 9 ) );
-                agenda.setCalendarEmbeddingCode( daoUtil.getString( 10 ) );
-
-            agendaList.add( agenda );
+	        daoUtil.executeQuery( );
+	
+	        while ( daoUtil.next( ) )
+	        {
+	            Agenda agenda = new Agenda( );
+	
+	            agenda.setId( daoUtil.getInt( 1 ) );
+	            agenda.setUid( daoUtil.getInt( 2 ) );
+	            agenda.setName( daoUtil.getString( 3 ) );
+	            agenda.setDescription( daoUtil.getString( 4 ) );
+	            agenda.setEventsEmbeddingCode( daoUtil.getString( 5 ) );
+	            agenda.setMapEmbeddingCode( daoUtil.getString( 6 ) );
+	            agenda.setSearchEmbeddingCode( daoUtil.getString( 7 ) );
+	            agenda.setCategoriesEmbeddingCode( daoUtil.getString( 8 ) );
+	            agenda.setTagsEmbeddingCode( daoUtil.getString( 9 ) );
+	            agenda.setCalendarEmbeddingCode( daoUtil.getString( 10 ) );
+	
+	            agendaList.add( agenda );
+	        }
+	
+	        daoUtil.free( );
+	        return agendaList;
         }
-
-        daoUtil.free( );
-        return agendaList;
     }
-    
+
     /**
      * {@inheritDoc }
      */
     @Override
     public Collection<Integer> selectIdAgendasList( Plugin plugin )
     {
-            Collection<Integer> agendaList = new ArrayList<Integer>( );
-            DAOUtil daoUtil = new DAOUtil( SQL_QUERY_SELECTALL_ID, plugin );
-            daoUtil.executeQuery(  );
-
-            while ( daoUtil.next(  ) )
-            {
-                agendaList.add( daoUtil.getInt( 1 ) );
-            }
-
-            daoUtil.free( );
-            return agendaList;
+        Collection<Integer> agendaList = new ArrayList<>( );
+        try( DAOUtil daoUtil = new DAOUtil( SQL_QUERY_SELECTALL_ID, plugin ))
+        {
+	        daoUtil.executeQuery( );
+	
+	        while ( daoUtil.next( ) )
+	        {
+	            agendaList.add( daoUtil.getInt( 1 ) );
+	        }
+	
+	        daoUtil.free( );
+	        return agendaList;
+        }
     }
 }

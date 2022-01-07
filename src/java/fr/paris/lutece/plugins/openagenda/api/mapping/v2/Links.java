@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,21 +42,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Links
 {
-	@JsonProperty("link")
-	private String _strLink;
+    @JsonProperty( "link" )
+    private String _strLink;
 
-	/**
-	 * @return the link
-	 */
-	public String getLink() {
-		return _strLink;
-	}
+    /**
+     * @return the link
+     */
+    public String getLink( )
+    {
+        return _strLink;
+    }
 
-	/**
-	 * @param strLink the link to set
-	 */
-	public void setLink(String strLink) {
-		this._strLink = strLink;
-	}
-	
+    /**
+     * @param strLink
+     *            the link to set
+     */
+    public void setLink( String strLink )
+    {
+        this._strLink = strLink;
+    }
+
 }

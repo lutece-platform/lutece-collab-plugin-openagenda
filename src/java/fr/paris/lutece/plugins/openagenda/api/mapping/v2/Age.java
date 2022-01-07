@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -41,38 +41,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Age
 {
-	@JsonProperty("min")
-	private int _nMin;
-	
-	@JsonProperty("max")
-	private int _nMax;
+    @JsonProperty( "min" )
+    private int _nMin;
 
-	/**
-	 * @return the min
-	 */
-	public int getMin() {
-		return _nMin;
-	}
+    @JsonProperty( "max" )
+    private int _nMax;
 
-	/**
-	 * @param nMin the min to set
-	 */
-	public void setMin(int nMin) {
-		this._nMin = nMin;
-	}
+    /**
+     * @return the min
+     */
+    public int getMin( )
+    {
+        return _nMin;
+    }
 
-	/**
-	 * @return the max
-	 */
-	public int getMax() {
-		return _nMax;
-	}
+    /**
+     * @param nMin
+     *            the min to set
+     */
+    public void setMin( int nMin )
+    {
+        this._nMin = nMin;
+    }
 
-	/**
-	 * @param nMax the max to set
-	 */
-	public void setMax(int nMax) {
-		this._nMax = nMax;
-	}
+    /**
+     * @return the max
+     */
+    public int getMax( )
+    {
+        return _nMax;
+    }
+
+    /**
+     * @param nMax
+     *            the max to set
+     */
+    public void setMax( int nMax )
+    {
+        this._nMax = nMax;
+    }
 
 }

@@ -18,9 +18,11 @@
         <div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				<form action="jsp/site/Portal.jsp?page=agenda&view=agendaApiEvents" method="POST">
-					<label for="dateEvent">Date début et de fin:</label>
-					<@input name="dateEvents" id="dateEvent" dateRangeEndId="dateEventEnd"  type="daterange" language="fr" />
+					<label for="dateEvent">Sélectionner une date de début et de fin:</label>
+					<@input name="dateEvents" id="dateEvent" dateRangeEndId="dateEventEnd" type="daterange" language="fr" />
 					<input type="hidden" name="agendaUid" value="${(agendaUid)!''}"/>
+					<input type="hidden" id="begin" name="begin" />
+					<input type="hidden" id="end" name="end" />
 					
 					<div class="col-xs-12 col-sm-6">
 						<button class="btn btn-primary" type="submit">Mettre à jour</button>
@@ -31,3 +33,19 @@
 
     </div>
 </div>
+<script>
+	$( function(e){
+		
+		$( "#dateEvent").change(function(){
+			var value = $(this).val();
+			var begin = null;
+			var end = null;
+			if(value != ''){
+				begin = value.substring(0,10);
+				end = value.substring(23,33);
+			}
+			$( "#begin").val(begin);
+			$( "#end").val(end);
+		});
+	});
+</script>

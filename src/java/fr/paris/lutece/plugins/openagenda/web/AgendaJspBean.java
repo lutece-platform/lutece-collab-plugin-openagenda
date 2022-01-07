@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2015, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,7 +32,6 @@
  * License 1.0
  */
 
- 
 package fr.paris.lutece.plugins.openagenda.web;
 
 import fr.paris.lutece.plugins.openagenda.business.Agenda;
@@ -47,9 +46,7 @@ import fr.paris.lutece.util.url.UrlItem;
 import java.util.List;
 import java.util.Map;
 
-
 import javax.servlet.http.HttpServletRequest;
-
 
 /**
  * This class provides the user interface to manage Agenda features ( manage, create, modify, remove )
@@ -61,11 +58,14 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     ////////////////////////////////////////////////////////////////////////////
     // Constants
 
-    // templates
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2551533407078479229L;
+	// templates
     private static final String TEMPLATE_MANAGE_AGENDAS = "/admin/plugins/openagenda/manage_agendas.html";
     private static final String TEMPLATE_CREATE_AGENDA = "/admin/plugins/openagenda/create_agenda.html";
     private static final String TEMPLATE_MODIFY_AGENDA = "/admin/plugins/openagenda/modify_agenda.html";
-
 
     // Parameters
     private static final String PARAMETER_ID_AGENDA = "id";
@@ -83,8 +83,7 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
 
     // Properties
     private static final String MESSAGE_CONFIRM_REMOVE_AGENDA = "openagenda.message.confirmRemoveAgenda";
-    private static final String PROPERTY_DEFAULT_LIST_AGENDA_PER_PAGE = "openagenda.listAgendas.itemsPerPage";
- 
+
     private static final String VALIDATION_ATTRIBUTES_PREFIX = "openagenda.model.entity.agenda.attribute.";
 
     // Views
@@ -102,16 +101,15 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     private static final String INFO_AGENDA_CREATED = "openagenda.info.agenda.created";
     private static final String INFO_AGENDA_UPDATED = "openagenda.info.agenda.updated";
     private static final String INFO_AGENDA_REMOVED = "openagenda.info.agenda.removed";
-    
+
     // Session variable to store working values
     private Agenda _agenda;
-    
-    
+
     @View( value = VIEW_MANAGE_AGENDAS, defaultView = true )
     public String getManageAgendas( HttpServletRequest request )
     {
         _agenda = null;
-        List<Agenda> listAgendas = (List<Agenda>) AgendaHome.getAgendasList(  );
+        List<Agenda> listAgendas = (List<Agenda>) AgendaHome.getAgendasList( );
         Map<String, Object> model = getPaginatedListModel( request, MARK_AGENDA_LIST, listAgendas, JSP_MANAGE_AGENDAS );
 
         return getPage( PROPERTY_PAGE_TITLE_MANAGE_AGENDAS, TEMPLATE_MANAGE_AGENDAS, model );
@@ -120,15 +118,16 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     /**
      * Returns the form to create a agenda
      *
-     * @param request The Http request
+     * @param request
+     *            The Http request
      * @return the html code of the agenda form
      */
     @View( VIEW_CREATE_AGENDA )
     public String getCreateAgenda( HttpServletRequest request )
     {
-        _agenda = ( _agenda != null ) ? _agenda : new Agenda(  );
+        _agenda = ( _agenda != null ) ? _agenda : new Agenda( );
 
-        Map<String, Object> model = getModel(  );
+        Map<String, Object> model = getModel( );
         model.put( MARK_AGENDA, _agenda );
 
         return getPage( PROPERTY_PAGE_TITLE_CREATE_AGENDA, TEMPLATE_CREATE_AGENDA, model );
@@ -137,7 +136,8 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     /**
      * Process the data capture form of a new agenda
      *
-     * @param request The Http Request
+     * @param request
+     *            The Http Request
      * @return The Jsp URL of the process result
      */
     @Action( ACTION_CREATE_AGENDA )
@@ -152,16 +152,16 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
         }
 
         AgendaHome.create( _agenda );
-        addInfo( INFO_AGENDA_CREATED, getLocale(  ) );
+        addInfo( INFO_AGENDA_CREATED, getLocale( ) );
 
         return redirectView( request, VIEW_MANAGE_AGENDAS );
     }
 
     /**
-     * Manages the removal form of a agenda whose identifier is in the http
-     * request
+     * Manages the removal form of a agenda whose identifier is in the http request
      *
-     * @param request The Http request
+     * @param request
+     *            The Http request
      * @return the html code to confirm
      */
     @Action( ACTION_CONFIRM_REMOVE_AGENDA )
@@ -171,8 +171,7 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
         UrlItem url = new UrlItem( getActionUrl( ACTION_REMOVE_AGENDA ) );
         url.addParameter( PARAMETER_ID_AGENDA, nId );
 
-        String strMessageUrl = AdminMessageService.getMessageUrl( request, MESSAGE_CONFIRM_REMOVE_AGENDA,
-                url.getUrl(  ), AdminMessage.TYPE_CONFIRMATION );
+        String strMessageUrl = AdminMessageService.getMessageUrl( request, MESSAGE_CONFIRM_REMOVE_AGENDA, url.getUrl( ), AdminMessage.TYPE_CONFIRMATION );
 
         return redirect( request, strMessageUrl );
     }
@@ -180,7 +179,8 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     /**
      * Handles the removal form of a agenda
      *
-     * @param request The Http request
+     * @param request
+     *            The Http request
      * @return the jsp URL to display the form to manage agendas
      */
     @Action( ACTION_REMOVE_AGENDA )
@@ -188,7 +188,7 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     {
         int nId = Integer.parseInt( request.getParameter( PARAMETER_ID_AGENDA ) );
         AgendaHome.remove( nId );
-        addInfo( INFO_AGENDA_REMOVED, getLocale(  ) );
+        addInfo( INFO_AGENDA_REMOVED, getLocale( ) );
 
         return redirectView( request, VIEW_MANAGE_AGENDAS );
     }
@@ -196,7 +196,8 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     /**
      * Returns the form to update info about a agenda
      *
-     * @param request The Http request
+     * @param request
+     *            The Http request
      * @return The HTML form to update info
      */
     @View( VIEW_MODIFY_AGENDA )
@@ -204,12 +205,12 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     {
         int nId = Integer.parseInt( request.getParameter( PARAMETER_ID_AGENDA ) );
 
-        if ( _agenda == null || ( _agenda.getId(  ) != nId ))
+        if ( _agenda == null || ( _agenda.getId( ) != nId ) )
         {
             _agenda = AgendaHome.findByPrimaryKey( nId );
         }
 
-        Map<String, Object> model = getModel(  );
+        Map<String, Object> model = getModel( );
         model.put( MARK_AGENDA, _agenda );
 
         return getPage( PROPERTY_PAGE_TITLE_MODIFY_AGENDA, TEMPLATE_MODIFY_AGENDA, model );
@@ -218,7 +219,8 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
     /**
      * Process the change form of a agenda
      *
-     * @param request The Http request
+     * @param request
+     *            The Http request
      * @return The Jsp URL of the process result
      */
     @Action( ACTION_MODIFY_AGENDA )
@@ -233,7 +235,7 @@ public class AgendaJspBean extends ManageOpenagendaJspBean
         }
 
         AgendaHome.update( _agenda );
-        addInfo( INFO_AGENDA_UPDATED, getLocale(  ) );
+        addInfo( INFO_AGENDA_UPDATED, getLocale( ) );
 
         return redirectView( request, VIEW_MANAGE_AGENDAS );
     }

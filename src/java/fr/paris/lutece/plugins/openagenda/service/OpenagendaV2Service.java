@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,8 +35,6 @@ package fr.paris.lutece.plugins.openagenda.service;
 
 import java.util.List;
 
-
-
 import fr.paris.lutece.plugins.openagenda.api.mapping.v2.AgendaData;
 import fr.paris.lutece.plugins.openagenda.api.mapping.v2.EventData;
 import fr.paris.lutece.plugins.openagenda.api.mapping.v2.LocationData;
@@ -54,86 +52,95 @@ import fr.paris.lutece.plugins.openagenda.utils.OpenagendaUtils;
  */
 public class OpenagendaV2Service
 {
-	private AgendasService _agendasService = new AgendasService();
-	private EventsService _eventsService = new EventsService();
-	private LocationsService _locationsService = new LocationsService();
-	
-	private static OpenagendaV2Service _instance;
-	
-	public static final OpenagendaV2Service getService()
-	{
-		if( _instance == null )
-		{
-			_instance = new OpenagendaV2Service();
-		}
-		
-		return _instance;
-	}
-	
-	/**
-	 * Gets the list of "agendas"
-	 * @return List<AgendaData>
-	 */
-	public List<AgendaData> getAgendas ( )
-	{
-		String jsonData = _agendasService.getAgendas();
-		Response response = OpenagendaUtils.jsonStringToObject(jsonData, Response.class);
-		
-		return response.getAgendas();
-	}
-    
-    /**
-     * Gets all events by agendaUid
-     * @param agendaUid (Required)
-     * @param filters (Optional See API V2 documentation)
-     * @return List<EventData>
-     */
-	public List<EventData> getEvents ( String agendaUid, EventsFilters filters )
-	{
-		String jsonData = _eventsService.getEvents(agendaUid, filters);
-		Response response = OpenagendaUtils.jsonStringToObject(jsonData, Response.class);
-		
-		return response.getEvents();
-	}
+    private AgendasService _agendasService = new AgendasService( );
+    private EventsService _eventsService = new EventsService( );
+    private LocationsService _locationsService = new LocationsService( );
+
+    private static OpenagendaV2Service _instance;
+
+    public static final OpenagendaV2Service getService( )
+    {
+        if ( _instance == null )
+        {
+            _instance = new OpenagendaV2Service( );
+        }
+
+        return _instance;
+    }
 
     /**
-     * Get the detail of an event 
-     * @param agendaUid (Required)
-     * @param eventUid (Required)
+     * Gets the list of "agendas"
+     * 
+     * @return List<AgendaData>
+     */
+    public List<AgendaData> getAgendas( )
+    {
+        String jsonData = _agendasService.getAgendas( );
+        Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
+
+        return response.getAgendas( );
+    }
+
+    /**
+     * Gets all events by agendaUid
+     * 
+     * @param agendaUid
+     *            (Required)
+     * @param filters
+     *            (Optional See API V2 documentation)
+     * @return List<EventData>
+     */
+    public List<EventData> getEvents( String agendaUid, EventsFilters filters )
+    {
+        String jsonData = _eventsService.getEvents( agendaUid, filters );
+        Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
+
+        return response.getEvents( );
+    }
+
+    /**
+     * Get the detail of an event
+     * 
+     * @param agendaUid
+     *            (Required)
+     * @param eventUid
+     *            (Required)
      * @return EventData
      */
-	public EventData getEvent ( String agendaUid, String eventUid )
-	{
-		String jsonData = _eventsService.getEvent(agendaUid, eventUid);
-		Response response = OpenagendaUtils.jsonStringToObject(jsonData, Response.class);
-		
-		return response.getEvent();
-	}
-	
+    public EventData getEvent( String agendaUid, String eventUid )
+    {
+        String jsonData = _eventsService.getEvent( agendaUid, eventUid );
+        Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
+
+        return response.getEvent( );
+    }
+
     /**
      * Gets locations by agendaUid
+     * 
      * @param agendaUid
      * @return List<LocationData>
      */
-	public List<LocationData> getLocations ( String agendaUid )
-	{
-		String jsonData = _locationsService.getLocations(agendaUid);
-		Response response = OpenagendaUtils.jsonStringToObject(jsonData, Response.class);
-		
-		return response.getLocations();
-	}
-	
+    public List<LocationData> getLocations( String agendaUid )
+    {
+        String jsonData = _locationsService.getLocations( agendaUid );
+        Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
+
+        return response.getLocations( );
+    }
+
     /**
      * Get the detail of an location
+     * 
      * @param agendaUid
      * @param locationUid
      * @return LocationData
      */
-	public LocationData getLocation ( String agendaUid, String locationUid)
-	{
-		String jsonData = _locationsService.getLocation(agendaUid, locationUid);
-		Response response = OpenagendaUtils.jsonStringToObject(jsonData, Response.class);
-		
-		return response.getLocation();
-	}
+    public LocationData getLocation( String agendaUid, String locationUid )
+    {
+        String jsonData = _locationsService.getLocation( agendaUid, locationUid );
+        Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
+
+        return response.getLocation( );
+    }
 }

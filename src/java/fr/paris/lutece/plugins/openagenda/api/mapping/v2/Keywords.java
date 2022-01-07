@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.openagenda.api.mapping.v2;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,106 +45,124 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Keywords
 {
-	@JsonProperty("fr")
-	private List<String> _listFr;
-	
-	@JsonProperty("en")
-	private List<String> _listEn;
-	
-	@JsonProperty("es")
-	private List<String> _listEs;
-	
-	@JsonProperty("de")
-	private List<String> _listDe;
-	
-	@JsonProperty("it")
-	private List<String> _listIt;
-	
-	@JsonProperty("ar")
-	private List<String> _listAr;
+    @JsonProperty( "fr" )
+    private List<String> _listFr;
 
-	/**
-	 * @return the listFr
-	 */
-	public List<String> getListFr() {
-		return _listFr;
-	}
+    @JsonProperty( "en" )
+    private List<String> _listEn;
 
-	/**
-	 * @param listFr the listFr to set
-	 */
-	public void setListFr(List<String> listFr) {
-		this._listFr = listFr;
-	}
+    @JsonProperty( "es" )
+    private List<String> _listEs;
 
-	/**
-	 * @return the listEn
-	 */
-	public List<String> getListEn() {
-		return _listEn;
-	}
+    @JsonProperty( "de" )
+    private List<String> _listDe;
 
-	/**
-	 * @param listEn the listEn to set
-	 */
-	public void setListEn(List<String> listEn) {
-		this._listEn = listEn;
-	}
+    @JsonProperty( "it" )
+    private List<String> _listIt;
 
-	/**
-	 * @return the listEs
-	 */
-	public List<String> getListEs() {
-		return _listEs;
-	}
+    @JsonProperty( "ar" )
+    private List<String> _listAr;
 
-	/**
-	 * @param listEs the listEs to set
-	 */
-	public void setListEs(List<String> listEs) {
-		this._listEs = listEs;
-	}
+    /**
+     * @return the listFr
+     */
+    public List<String> getListFr( )
+    {
+        return Collections.unmodifiableList( _listFr );
+    }
 
-	/**
-	 * @return the listDe
-	 */
-	public List<String> getListDe() {
-		return _listDe;
-	}
+    /**
+     * @param listFr
+     *            the listFr to set
+     */
+    public void setListFr( List<String> listFr )
+    {
+        this._listFr = Collections.unmodifiableList( listFr );
+    }
 
-	/**
-	 * @param listDe the listDe to set
-	 */
-	public void setListDe(List<String> listDe) {
-		this._listDe = listDe;
-	}
+    /**
+     * @return the listEn
+     */
+    public List<String> getListEn( )
+    {
+        return Collections.unmodifiableList( _listEn );
+    }
 
-	/**
-	 * @return the listIt
-	 */
-	public List<String> getListIt() {
-		return _listIt;
-	}
+    /**
+     * @param listEn
+     *            the listEn to set
+     */
+    public void setListEn( List<String> listEn )
+    {
+        this._listEn = Collections.unmodifiableList( listEn );
+    }
 
-	/**
-	 * @param listIt the listIt to set
-	 */
-	public void setListIt(List<String> listIt) {
-		this._listIt = listIt;
-	}
+    /**
+     * @return the listEs
+     */
+    public List<String> getListEs( )
+    {
+        return Collections.unmodifiableList( _listEs );
+    }
 
-	/**
-	 * @return the listAr
-	 */
-	public List<String> getListAr() {
-		return _listAr;
-	}
+    /**
+     * @param listEs
+     *            the listEs to set
+     */
+    public void setListEs( List<String> listEs )
+    {
+        this._listEs = Collections.unmodifiableList( listEs );
+    }
 
-	/**
-	 * @param listAr the listAr to set
-	 */
-	public void setListAr(List<String> listAr) {
-		this._listAr = listAr;
-	}
+    /**
+     * @return the listDe
+     */
+    public List<String> getListDe( )
+    {
+        return Collections.unmodifiableList( _listDe );
+    }
+
+    /**
+     * @param listDe
+     *            the listDe to set
+     */
+    public void setListDe( List<String> listDe )
+    {
+        this._listDe = Collections.unmodifiableList( listDe );
+    }
+
+    /**
+     * @return the listIt
+     */
+    public List<String> getListIt( )
+    {
+        return Collections.unmodifiableList( _listIt );
+    }
+
+    /**
+     * @param listIt
+     *            the listIt to set
+     */
+    public void setListIt( List<String> listIt )
+    {
+        this._listIt = Collections.unmodifiableList( listIt );
+    }
+
+    /**
+     * @return the listAr
+     */
+    public List<String> getListAr( )
+    {
+        return Collections.unmodifiableList( _listAr );
+    }
+
+    /**
+     * @param listAr
+     *            the listAr to set
+     */
+    public void setListAr( List<String> listAr )
+    {
+        this._listAr = Collections.unmodifiableList( listAr );
+    }
 
 }

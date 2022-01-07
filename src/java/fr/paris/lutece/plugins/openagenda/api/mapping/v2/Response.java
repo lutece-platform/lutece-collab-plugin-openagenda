@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.openagenda.api.mapping.v2;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,106 +45,124 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Response
 {
-	@JsonProperty("success")
-	private boolean _bSuccess;
-	
-	@JsonProperty("events")
-	private List<EventData> _listEvents;
-	
-	@JsonProperty("event")
-	private EventData _event;
+    @JsonProperty( "success" )
+    private boolean _bSuccess;
 
-	@JsonProperty("locations")
-	private List<LocationData> _listLocations;
-	
-	@JsonProperty("location")
-	private LocationData _location;
-	
-	@JsonProperty("items")
-	private List<AgendaData> _listAgendas;
+    @JsonProperty( "events" )
+    private List<EventData> _listEvents;
 
-	/**
-	 * @return the success
-	 */
-	public boolean isSuccess() {
-		return _bSuccess;
-	}
+    @JsonProperty( "event" )
+    private EventData _event;
 
-	/**
-	 * @param bSuccess the success to set
-	 */
-	public void setSuccess(boolean bSuccess) {
-		this._bSuccess = bSuccess;
-	}
+    @JsonProperty( "locations" )
+    private List<LocationData> _listLocations;
 
-	/**
-	 * @return the events
-	 */
-	public List<EventData> getEvents() {
-		return _listEvents;
-	}
+    @JsonProperty( "location" )
+    private LocationData _location;
 
-	/**
-	 * @param listEvents the events to set
-	 */
-	public void setEvents(List<EventData> listEvents) {
-		this._listEvents = listEvents;
-	}
+    @JsonProperty( "items" )
+    private List<AgendaData> _listAgendas;
 
-	/**
-	 * @return the event
-	 */
-	public EventData getEvent() {
-		return _event;
-	}
+    /**
+     * @return the success
+     */
+    public boolean isSuccess( )
+    {
+        return _bSuccess;
+    }
 
-	/**
-	 * @param event the event to set
-	 */
-	public void setEvent(EventData event) {
-		this._event = event;
-	}
+    /**
+     * @param bSuccess
+     *            the success to set
+     */
+    public void setSuccess( boolean bSuccess )
+    {
+        this._bSuccess = bSuccess;
+    }
 
-	/**
-	 * @return the locations
-	 */
-	public List<LocationData> getLocations() {
-		return _listLocations;
-	}
+    /**
+     * @return the events
+     */
+    public List<EventData> getEvents( )
+    {
+        return Collections.unmodifiableList( _listEvents );
+    }
 
-	/**
-	 * @param listLocations the locations to set
-	 */
-	public void setLocations(List<LocationData> listLocations) {
-		this._listLocations = listLocations;
-	}
+    /**
+     * @param listEvents
+     *            the events to set
+     */
+    public void setEvents( List<EventData> listEvents )
+    {
+        this._listEvents = Collections.unmodifiableList( listEvents );
+    }
 
-	/**
-	 * @return the location
-	 */
-	public LocationData getLocation() {
-		return _location;
-	}
+    /**
+     * @return the event
+     */
+    public EventData getEvent( )
+    {
+        return _event;
+    }
 
-	/**
-	 * @param location the location to set
-	 */
-	public void setLocation(LocationData location) {
-		this._location = location;
-	}
+    /**
+     * @param event
+     *            the event to set
+     */
+    public void setEvent( EventData event )
+    {
+        this._event = event;
+    }
 
-	/**
-	 * @return the agendas
-	 */
-	public List<AgendaData> getAgendas() {
-		return _listAgendas;
-	}
+    /**
+     * @return the locations
+     */
+    public List<LocationData> getLocations( )
+    {
+        return Collections.unmodifiableList( _listLocations );
+    }
 
-	/**
-	 * @param listAgendas the agendas to set
-	 */
-	public void setAgendas(List<AgendaData> listAgendas) {
-		this._listAgendas = listAgendas;
-	}
-	
+    /**
+     * @param listLocations
+     *            the locations to set
+     */
+    public void setLocations( List<LocationData> listLocations )
+    {
+        this._listLocations = Collections.unmodifiableList( listLocations );
+    }
+
+    /**
+     * @return the location
+     */
+    public LocationData getLocation( )
+    {
+        return _location;
+    }
+
+    /**
+     * @param location
+     *            the location to set
+     */
+    public void setLocation( LocationData location )
+    {
+        this._location = location;
+    }
+
+    /**
+     * @return the agendas
+     */
+    public List<AgendaData> getAgendas( )
+    {
+        return Collections.unmodifiableList( _listAgendas );
+    }
+
+    /**
+     * @param listAgendas
+     *            the agendas to set
+     */
+    public void setAgendas( List<AgendaData> listAgendas )
+    {
+        this._listAgendas = Collections.unmodifiableList( listAgendas );
+    }
+
 }

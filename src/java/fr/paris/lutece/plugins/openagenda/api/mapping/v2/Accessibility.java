@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,83 +42,98 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Accessibility
 {
-	@JsonProperty("ii")
-	private boolean _bIi;
-	
-	@JsonProperty("hi")
-	private boolean _bHi;
-	
-	@JsonProperty("vi")
-	private boolean _bVi;
-	
-	@JsonProperty("pi")
-	private boolean _bPi;
-	
-	@JsonProperty("mi")
-	private boolean _bMi;
+    @JsonProperty( "ii" )
+    private boolean _bIi;
 
-	/**
-	 * Handicap intellectuel
-	 * @return
-	 */
-	public boolean isIi() {
-		return _bIi;
-	}
+    @JsonProperty( "hi" )
+    private boolean _bHi;
 
-	/**
-	 * 
-	 * @param bIi
-	 */
-	public void setIi(boolean bIi) {
-		this._bIi = bIi;
-	}
+    @JsonProperty( "vi" )
+    private boolean _bVi;
 
-	/**
-	 * Handicap auditif
-	 * @return
-	 */
-	public boolean isHi() {
-		return _bHi;
-	}
+    @JsonProperty( "pi" )
+    private boolean _bPi;
 
-	public void setHi(boolean bHi) {
-		this._bHi = bHi;
-	}
+    @JsonProperty( "mi" )
+    private boolean _bMi;
 
-	/**
-	 * Handicap visuel
-	 * @return
-	 */
-	public boolean isVi() {
-		return _bVi;
-	}
+    /**
+     * Handicap intellectuel
+     * 
+     * @return
+     */
+    public boolean isIi( )
+    {
+        return _bIi;
+    }
 
-	public void setVi(boolean bVi) {
-		this._bVi = bVi;
-	}
-	
-	/**
-	 * Handicap psychique
-	 * @return
-	 */
-	public boolean isPi() {
-		return _bPi;
-	}
+    /**
+     * 
+     * @param bIi
+     */
+    public void setIi( boolean bIi )
+    {
+        this._bIi = bIi;
+    }
 
-	public void setPi(boolean bPi) {
-		this._bPi = bPi;
-	}
+    /**
+     * Handicap auditif
+     * 
+     * @return
+     */
+    public boolean isHi( )
+    {
+        return _bHi;
+    }
 
-	/**
-	 * Handicap moteur
-	 * @return
-	 */
-	public boolean isMi() {
-		return _bMi;
-	}
-	
-	public void setMi(boolean bMi) {
-		this._bMi = bMi;
-	}
+    public void setHi( boolean bHi )
+    {
+        this._bHi = bHi;
+    }
+
+    /**
+     * Handicap visuel
+     * 
+     * @return
+     */
+    public boolean isVi( )
+    {
+        return _bVi;
+    }
+
+    public void setVi( boolean bVi )
+    {
+        this._bVi = bVi;
+    }
+
+    /**
+     * Handicap psychique
+     * 
+     * @return
+     */
+    public boolean isPi( )
+    {
+        return _bPi;
+    }
+
+    public void setPi( boolean bPi )
+    {
+        this._bPi = bPi;
+    }
+
+    /**
+     * Handicap moteur
+     * 
+     * @return
+     */
+    public boolean isMi( )
+    {
+        return _bMi;
+    }
+
+    public void setMi( boolean bMi )
+    {
+        this._bMi = bMi;
+    }
 
 }

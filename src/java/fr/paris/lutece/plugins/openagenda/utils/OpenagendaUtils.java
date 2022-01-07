@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -38,11 +38,14 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.net.URLEncoder;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import fr.paris.lutece.portal.service.util.AppLogService;
+import fr.paris.lutece.portal.service.util.AppPropertiesService;
 
 /**
  * 
@@ -51,81 +54,100 @@ import fr.paris.lutece.portal.service.util.AppLogService;
  */
 public class OpenagendaUtils
 {
-	/**
-	 * This method convert object to string Request
-	 * @param object
-	 * @param clazz
-	 * @return 
-	 */
-	public static String getRequestString( Object object, Class clazz )
-	{
-		StringBuilder sb = new StringBuilder();
-	    
-	    try
-	    {
-	        for ( Field f : clazz.getDeclaredFields( ) )
-	        {
-	            f.setAccessible( true );
-	            
-	            if( f.get( object ) != null)
-	            {
-		            if( f.getDeclaredAnnotation( JsonProperty.class ) != null )
-		            {
-		            	sb.append( "&" + encodeUrl( f.getDeclaredAnnotation( JsonProperty.class ).value( ) ) + "=" + encodeUrl( String.valueOf( f.get( object ) ) ) );
-		            }
-		            else
-		            {
-		            	sb.append("&" + encodeUrl( f.getName() ) + "=" + encodeUrl( String.valueOf( f.get( object ) ) ) );
-		            }
-	            }
-	        }
-	    }
-	    catch ( Exception e )
-	    {
-	    	AppLogService.error("Erreur lors de la formation de la request", e);
-	    }
+	
+    // Properties
+    private static final String PROPERTY_ENCODING_URL = "lutece.encoding.url";
 
-	    return sb.toString();
-	}
-	
-	/**
-	 * Encode url
-	 * @param strUrl
-	 * @return url encoded
-	 */
-	public static String encodeUrl ( String strUrl )
-	{
-		try
-		{
-			return URLEncoder.encode(strUrl, "UTF-8");
-		}
-		catch ( UnsupportedEncodingException e )
-		{
-        	AppLogService.error("Error encoding de l'url {}", strUrl, e );
-		}
-		return strUrl;
-	}
-	
-	/**
-	 * Generic method for mapping json to object
-	 * @param jsonData
-	 * @param type
-	 * @return object
-	 */
-	public static <T> T jsonStringToObject ( String jsonData, Class<T> type)
-	{
-		ObjectMapper mapper = new ObjectMapper();
-	    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    private OpenagendaUtils( )
+    {
+        throw new IllegalStateException( "Utility class" );
+    }
+
+    /**
+     * This method convert object to string Request
+     * 
+     * @param object
+     * @param clazz
+     * @return
+     */
+    public static String getRequestString( Object object, Class clazz )
+    {
+        StringBuilder sb = new StringBuilder( );
+
+	    if( object == null )
+	    {
+	    	return StringUtils.EMPTY;
+	    }
+	    
         try
         {
-        	return mapper.readValue( jsonData, type );
+            for ( Field f : clazz.getDeclaredFields( ) )
+            {
+                f.setAccessible( true );
+
+                if ( f.get( object ) != null )
+                {
+                    if ( f.getDeclaredAnnotation( JsonProperty.class ) != null )
+                    {
+                        sb.append( "&" + encodeUrl( f.getDeclaredAnnotation( JsonProperty.class ).value( ) ) + "="
+                                + encodeUrl( String.valueOf( f.get( object ) ) ) );
+                    }
+                    else
+                    {
+                        sb.append( "&" + encodeUrl( f.getName( ) ) + "=" + encodeUrl( String.valueOf( f.get( object ) ) ) );
+                    }
+                }
+            }
         }
-        catch (IOException ex)
+        catch( IllegalAccessException | IllegalArgumentException | SecurityException e )
+        {
+            AppLogService.error( "Erreur lors de la formation de la request", e );
+        }
+
+        return sb.toString( );
+    }
+
+    /**
+     * Encode url
+     * 
+     * @param strUrl
+     * @return url encoded
+     */
+    public static String encodeUrl( String strUrl )
+    {
+        try
+        {
+
+            return URLEncoder.encode( strUrl, AppPropertiesService.getProperty( PROPERTY_ENCODING_URL ) );
+        }
+        catch( UnsupportedEncodingException e )
+        {
+            AppLogService.error( "Error encoding de l'url {}", strUrl, e );
+        }
+        return strUrl;
+    }
+
+    /**
+     * Generic method for mapping json to object
+     * 
+     * @param jsonData
+     * @param type
+     * @return object
+     */
+    public static <T> T jsonStringToObject( String jsonData, Class<T> type )
+    {
+        ObjectMapper mapper = new ObjectMapper( );
+        mapper.configure( DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false );
+        try
+        {
+            return mapper.readValue( jsonData, type );
+        }
+        catch( IOException ex )
         {
             AppLogService.error( "Erreur de mapping", ex );
         }
-        
-		return null;
-	}
-	
+
+        return null;
+    }
+
 }
