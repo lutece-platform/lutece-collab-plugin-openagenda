@@ -35,15 +35,20 @@ package fr.paris.lutece.plugins.openagenda.web;
  
 import fr.paris.lutece.plugins.openagenda.business.Agenda;
 import fr.paris.lutece.plugins.openagenda.business.AgendaHome;
-import fr.paris.lutece.plugins.openagenda.service.OpenagendaService;
+import fr.paris.lutece.plugins.openagenda.client.v2.EventsFilters;
+import fr.paris.lutece.plugins.openagenda.service.OpenagendaV2Service;
 import fr.paris.lutece.portal.web.xpages.XPage;
 import fr.paris.lutece.portal.util.mvc.xpage.MVCApplication;
 import fr.paris.lutece.portal.util.mvc.commons.annotations.View;
 import fr.paris.lutece.portal.util.mvc.xpage.annotations.Controller;
 
+import java.time.LocalDate;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+
 
 /**
  * This class provides the user interface to list all Agendas and view an agenda
@@ -59,15 +64,19 @@ public class AgendaXPage extends MVCApplication
     // Templates
     private static final String TEMPLATE_MANAGE_AGENDAS="/skin/plugins/openagenda/manage_agendas.html";
     private static final String TEMPLATE_AGENDA_EVENTS="/skin/plugins/openagenda/agenda_events.html";
-    private static final String TEMPLATE_AGENDA_API_EVENTS="/skin/plugins/openagenda/agenda_api_events.html";
+    private static final String TEMPLATE_AGENDA_API_V2_EVENTS="/skin/plugins/openagenda/agenda_api_v2_events.html";
     
     // Parameters
     private static final String PARAMETER_ID_AGENDA="id";
+    private static final String PARAMETER_AGENDA_UID="agendaUid";
+    private static final String PARAMETER_DATE_BEGIN="begin";
+    private static final String PARAMETER_DATE_END="end";
     
     // Markers
     private static final String MARK_AGENDA_LIST = "agenda_list";
     private static final String MARK_AGENDA = "agenda";
     private static final String MARK_EVENT_LIST = "event_list";
+    private static final String MARK_AGENDA_UID="agendaUid";
     
     // Views
     private static final String VIEW_MANAGE_AGENDAS = "manageAgendas";
@@ -99,13 +108,29 @@ public class AgendaXPage extends MVCApplication
     @View( value = VIEW_AGENDA_API_EVENTS )
     public XPage getListEvents( HttpServletRequest request )
     {
-        
-        OpenagendaService oas = new OpenagendaService();
-        
+    	String strAgendaUid = request.getParameter(PARAMETER_AGENDA_UID);
+    	String strBegin = request.getParameter(PARAMETER_DATE_BEGIN);
+    	String strEnd = request.getParameter(PARAMETER_DATE_END);
+    	
+    	EventsFilters filters = new EventsFilters();
+    	
+    	if( StringUtils.isNotEmpty(strBegin) )
+    	{
+    		LocalDate dateBegin = LocalDate.parse(strBegin);
+    		filters.setTimingsGte(dateBegin);
+    	}
+    	
+    	if( StringUtils.isNotEmpty(strEnd) )
+    	{
+    		LocalDate dateEnd = LocalDate.parse(strEnd);
+    		filters.setTimingsLte(dateEnd);
+    	}
+    	    	
         Map<String, Object> model = getModel(  );
-        model.put( MARK_EVENT_LIST, oas.getEventsAgenda("53528128"));
-
-        return getXPage( TEMPLATE_AGENDA_API_EVENTS, request.getLocale(  ), model );
+        model.put( MARK_EVENT_LIST, OpenagendaV2Service.getService().getEvents(strAgendaUid, filters) );
+        model.put( MARK_AGENDA_UID, strAgendaUid );
+        
+        return getXPage( TEMPLATE_AGENDA_API_V2_EVENTS, request.getLocale(  ), model );
     }
-    
+
 }
