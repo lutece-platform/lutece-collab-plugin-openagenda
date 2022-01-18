@@ -1,0 +1,7 @@
+<@input type="hidden" name='id_portlet' mandatory=true value="${(portlet.idPortlet)!''}"/>
+<@formGroup labelFor='name' labelKey='#i18n{openagenda.portlet.openagendaPortlet.labelNamePortlet}'>
+	<@input name='name' mandatory=true value="${(portlet.name)!''}"/>
+</@formGroup>
+<@formGroup labelFor='agenda_uid' labelKey='#i18n{openagenda.portlet.openagendaPortlet.labelAgendaUidPortlet}'>
+	<@input type="number" name='agenda_uid' mandatory=true value="${(portlet.agendaUid)!''}"/>
+</@formGroup>

@@ -41,5 +41,20 @@
 
     <!-- Portlet parameters -->
     <portlets>
+        <portlet>
+            <portlet-class>fr.paris.lutece.plugins.openagenda.business.portlet.OpenagendaPortletHome</portlet-class>
+            <portlet-type-id>OPENAGENDA_PORTLET</portlet-type-id>
+            <portlet-type-name>openagenda.portlet.openagendaPortlet.name</portlet-type-name>
+            <portlet-creation-url>plugins/openagenda/CreatePortletOpenagenda.jsp</portlet-creation-url>
+            <portlet-update-url>plugins/openagenda/ModifyPortletOpenagenda.jsp</portlet-update-url>
+            <portlet-create-action-url>plugins/openagenda/DoCreatePortletOpenagenda.jsp</portlet-create-action-url>
+            <portlet-modify-action-url>plugins/openagenda/DoModifyPortletOpenagenda.jsp</portlet-modify-action-url>
+            <portlet-create-script-template>/admin/portlet/script_create_portlet.html</portlet-create-script-template>
+            <portlet-modify-script-template>/admin/portlet/script_modify_portlet.html</portlet-modify-script-template>
+            <portlet-create-specific-template>/admin/plugins/openagenda/portlet/create_portlet_openagenda.html</portlet-create-specific-template>
+            <portlet-modify-specific-template>/admin/plugins/openagenda/portlet/modify_portlet_openagenda.html</portlet-modify-specific-template>
+            <portlet-create-specific-form-template/>
+            <portlet-modify-specific-form-template/>
+        </portlet>
     </portlets>
 </plug-in>
