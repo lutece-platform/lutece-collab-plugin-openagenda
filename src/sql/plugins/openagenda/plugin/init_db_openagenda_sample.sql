@@ -2,7 +2,7 @@
 -- Contenu de la table `openagenda_agenda`
 --
 
-INSERT INTO `openagenda_agenda` (`id_agenda`, `uid`, `name`, `description`, `eventsembeddingcode`, `mapembeddingcode`, `searchembeddingcode`, `categoriesembeddingcode`, `tagsembeddingcode`, `calendarembeddingcode`) VALUES
+INSERT INTO openagenda_agenda (id_agenda, uid, name, description, eventsembeddingcode, mapembeddingcode, searchembeddingcode, categoriesembeddingcode, tagsembeddingcode, calendarembeddingcode) VALUES
 (1, 58106757, 'budget-participatif', ''
     , '<iframe style="width:100%;" frameborder="0" scrolling="no" allowtransparency="allowtransparency" class="cibulFrame cbpgbdy" data-oabdy src="//openagenda.com/agendas/58106757/embeds/50749896/events"></iframe><script type="text/javascript" src="//openagenda.com/js/embed/cibulBodyWidget.js"></script>'
     , '<div class="cbpgmp cibulMap" data-oamp data-cbctl="58106757/50749896" data-lang="fr" ></div><script type="text/javascript" src="//openagenda.com/js/embed/cibulMapWidget.js"></script>'
