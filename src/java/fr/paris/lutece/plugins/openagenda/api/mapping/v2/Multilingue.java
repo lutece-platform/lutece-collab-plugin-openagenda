@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,106 +42,124 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Multilingue
 {
-	@JsonProperty("fr")
-	private String _strFr;
-	
-	@JsonProperty("en")
-	private String _strEn;
-	
-	@JsonProperty("es")
-	private String _strEs;
-	
-	@JsonProperty("de")
-	private String _strDe;
-	
-	@JsonProperty("it")
-	private String _strIt;
-	
-	@JsonProperty("ar")
-	private String _strAr;
+    @JsonProperty( "fr" )
+    private String _strFr;
 
-	/**
-	 * @return the _strFr
-	 */
-	public String getFr() {
-		return _strFr;
-	}
+    @JsonProperty( "en" )
+    private String _strEn;
 
-	/**
-	 * @param strFr the _strFr to set
-	 */
-	public void setFr(String strFr) {
-		this._strFr = strFr;
-	}
+    @JsonProperty( "es" )
+    private String _strEs;
 
-	/**
-	 * @return the _strEn
-	 */
-	public String getEn() {
-		return _strEn;
-	}
+    @JsonProperty( "de" )
+    private String _strDe;
 
-	/**
-	 * @param strEn the _strEn to set
-	 */
-	public void setEn(String strEn) {
-		this._strEn = strEn;
-	}
+    @JsonProperty( "it" )
+    private String _strIt;
 
-	/**
-	 * @return the _strEs
-	 */
-	public String getEs() {
-		return _strEs;
-	}
+    @JsonProperty( "ar" )
+    private String _strAr;
 
-	/**
-	 * @param strEs the _strEs to set
-	 */
-	public void setEs(String strEs) {
-		this._strEs = strEs;
-	}
+    /**
+     * @return the _strFr
+     */
+    public String getFr( )
+    {
+        return _strFr;
+    }
 
-	/**
-	 * @return the _strDe
-	 */
-	public String getDe() {
-		return _strDe;
-	}
+    /**
+     * @param strFr
+     *            the _strFr to set
+     */
+    public void setFr( String strFr )
+    {
+        this._strFr = strFr;
+    }
 
-	/**
-	 * @param strDe the _strDe to set
-	 */
-	public void setDe(String strDe) {
-		this._strDe = strDe;
-	}
+    /**
+     * @return the _strEn
+     */
+    public String getEn( )
+    {
+        return _strEn;
+    }
 
-	/**
-	 * @return the _strIt
-	 */
-	public String getIt() {
-		return _strIt;
-	}
+    /**
+     * @param strEn
+     *            the _strEn to set
+     */
+    public void setEn( String strEn )
+    {
+        this._strEn = strEn;
+    }
 
-	/**
-	 * @param strIt the _strIt to set
-	 */
-	public void setIt(String strIt) {
-		this._strIt = strIt;
-	}
+    /**
+     * @return the _strEs
+     */
+    public String getEs( )
+    {
+        return _strEs;
+    }
 
-	/**
-	 * @return the _strAr
-	 */
-	public String getAr() {
-		return _strAr;
-	}
+    /**
+     * @param strEs
+     *            the _strEs to set
+     */
+    public void setEs( String strEs )
+    {
+        this._strEs = strEs;
+    }
 
-	/**
-	 * @param strAr the _strAr to set
-	 */
-	public void setAr(String strAr) {
-		this._strAr = strAr;
-	}
+    /**
+     * @return the _strDe
+     */
+    public String getDe( )
+    {
+        return _strDe;
+    }
+
+    /**
+     * @param strDe
+     *            the _strDe to set
+     */
+    public void setDe( String strDe )
+    {
+        this._strDe = strDe;
+    }
+
+    /**
+     * @return the _strIt
+     */
+    public String getIt( )
+    {
+        return _strIt;
+    }
+
+    /**
+     * @param strIt
+     *            the _strIt to set
+     */
+    public void setIt( String strIt )
+    {
+        this._strIt = strIt;
+    }
+
+    /**
+     * @return the _strAr
+     */
+    public String getAr( )
+    {
+        return _strAr;
+    }
+
+    /**
+     * @param strAr
+     *            the _strAr to set
+     */
+    public void setAr( String strAr )
+    {
+        this._strAr = strAr;
+    }
 
 }

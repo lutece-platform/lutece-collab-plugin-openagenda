@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,38 +42,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Registration
 {
-	@JsonProperty("type")
-	private String _strType;
-	
-	@JsonProperty("value")
-	private String _strValue;
+    @JsonProperty( "type" )
+    private String _strType;
 
-	/**
-	 * @return the _strType
-	 */
-	public String getType() {
-		return _strType;
-	}
+    @JsonProperty( "value" )
+    private String _strValue;
 
-	/**
-	 * @param strType the _strType to set
-	 */
-	public void setType(String strType) {
-		this._strType = strType;
-	}
+    /**
+     * @return the _strType
+     */
+    public String getType( )
+    {
+        return _strType;
+    }
 
-	/**
-	 * @return the _strValue
-	 */
-	public String getValue() {
-		return _strValue;
-	}
+    /**
+     * @param strType
+     *            the _strType to set
+     */
+    public void setType( String strType )
+    {
+        this._strType = strType;
+    }
 
-	/**
-	 * @param strValue the _strValue to set
-	 */
-	public void setValue(String strValue) {
-		this._strValue = strValue;
-	}
+    /**
+     * @return the _strValue
+     */
+    public String getValue( )
+    {
+        return _strValue;
+    }
+
+    /**
+     * @param strValue
+     *            the _strValue to set
+     */
+    public void setValue( String strValue )
+    {
+        this._strValue = strValue;
+    }
 
 }

@@ -6,10 +6,10 @@
         <@headerButtons>
 
         
-        <form class="form-inline pull-right" method="post" name="manage_agendas" action="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
+        <@tform class="form-inline pull-right" method="post" name="manage_agendas" action="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
             <!-- Add pull-right to class1 -->
             <@actionButtons button1Name="view_createAgenda" icon1="icon-plus icon-white" i18nValue1Key="openagenda.manage_agendas.buttonAdd" />
-        </form>
+        </@tform>
         
     </@headerButtons>
     </@boxHeader>
@@ -19,7 +19,7 @@
     
     <@table>
         <tr>
-            <input type="hidden" id="id" name="id"/>
+            <@input type="hidden" id="id" name="id"/>
             <th>#i18n{openagenda.manage_agendas.columnUid}</th>
             <th>#i18n{openagenda.manage_agendas.columnName}</th>
             <th>#i18n{openagenda.manage_agendas.columnDescription}</th>
@@ -34,7 +34,7 @@
         <@tableHeadBodySeparator />
             <#list agenda_list as agenda >
         <tr>
-            <input type="hidden" id="id" name="id"/>
+            <@input type="hidden" id="id" name="id"/>
             <td>
                 ${agenda.uid}
             </td>
@@ -45,33 +45,33 @@
                 ${agenda.description}
             </td>
             <td>
-                <textarea>${agenda.eventsEmbeddingCode}</textarea>
+                <@input type="textarea" name="eventsEmbeddingCode" rows="4" value="${(agenda.eventsEmbeddingCode)!''}" />
             </td>
             <td>
-                <textarea>${agenda.mapEmbeddingCode}</textarea>
+				<@input type="textarea" name="mapEmbeddingCode" rows="4" value="${(agenda.mapEmbeddingCode)!''}" />
             </td>
             <td>
-                <textarea>${agenda.searchEmbeddingCode}</textarea>
+				<@input type="textarea" name="searchEmbeddingCode" rows="4" value="${(agenda.searchEmbeddingCode)!''}" />
             </td>
             <td>
-                <textarea>${agenda.categoriesEmbeddingCode}</textarea>
+				<@input type="textarea" name="categoriesEmbeddingCode" rows="4" value="${(agenda.categoriesEmbeddingCode)!''}" />
             </td>
             <td>
-                <textarea>${agenda.tagsEmbeddingCode}</textarea>
+				<@input type="textarea" name="tagsEmbeddingCode" rows="4" value="${(agenda.tagsEmbeddingCode)!''}" />
             </td>
             <td>
-                <textarea>${agenda.calendarEmbeddingCode}</textarea>
+				<@input type="textarea" name="calendarEmbeddingCode" rows="4" value="${(agenda.calendarEmbeddingCode)!''}" />
             </td>
         <td>
-            <a href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?view=modifyAgenda&id=${agenda.id}"
+            <@aButton  href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?view=modifyAgenda&id=${agenda.id}"
                class="btn btn-primary btn-small" title="#i18n{portal.util.labelModify}">
-                <i class="fa fa-pencil"></i>
-            </a>
+                <@icon style="pencil"></@icon>
+            </@aButton >
 
-            <a href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?action=confirmRemoveAgenda&id=${agenda.id}"
+            <@aButton  href="jsp/admin/plugins/openagenda/ManageAgendas.jsp?action=confirmRemoveAgenda&id=${agenda.id}"
                class="btn btn-danger btn-small" title="#i18n{portal.util.labelDelete}" >
-                <i class="fa fa-trash"></i>
-            </a>
+                <@icon style="trash"></@icon>
+            </@aButton >
         </td>
         </tr>
         </#list>

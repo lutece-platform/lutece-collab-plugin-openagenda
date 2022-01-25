@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,38 +42,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Image
 {
-	@JsonProperty("filename")
-	private String _strFilename;
-	
-	@JsonProperty("base")
-	private String _strBaseUrl;
+    @JsonProperty( "filename" )
+    private String _strFilename;
 
-	/**
-	 * @return the filename
-	 */
-	public String getFilename() {
-		return _strFilename;
-	}
+    @JsonProperty( "base" )
+    private String _strBaseUrl;
 
-	/**
-	 * @param strFilename the filename to set
-	 */
-	public void setFilename(String strFilename) {
-		this._strFilename = strFilename;
-	}
+    /**
+     * @return the filename
+     */
+    public String getFilename( )
+    {
+        return _strFilename;
+    }
 
-	/**
-	 * @return the baseUrl
-	 */
-	public String getBaseUrl() {
-		return _strBaseUrl;
-	}
+    /**
+     * @param strFilename
+     *            the filename to set
+     */
+    public void setFilename( String strFilename )
+    {
+        this._strFilename = strFilename;
+    }
 
-	/**
-	 * @param strBaseUrl the baseUrl to set
-	 */
-	public void setBaseUrl(String strBaseUrl) {
-		this._strBaseUrl = strBaseUrl;
-	}
+    /**
+     * @return the baseUrl
+     */
+    public String getBaseUrl( )
+    {
+        return _strBaseUrl;
+    }
+
+    /**
+     * @param strBaseUrl
+     *            the baseUrl to set
+     */
+    public void setBaseUrl( String strBaseUrl )
+    {
+        this._strBaseUrl = strBaseUrl;
+    }
 
 }

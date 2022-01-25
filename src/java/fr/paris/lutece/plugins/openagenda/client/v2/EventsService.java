@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -45,69 +45,67 @@ import fr.paris.lutece.util.httpaccess.HttpAccessException;
 
 /**
  * 
- *  This Service gets information about events
+ * This Service gets information about events
  *
  */
 public class EventsService
 {
-	private static final String PROPERTY_ENDPOINT_ALL_EVENTS 		= "openagenda.api.v2.events.all.endpoint";
-	private static final String PROPERTY_ENDPOINT_EVENT		 		= "openagenda.api.v2.events.detail.endpoint";
-    private static final String PROPERTY_API_OPENAGENDA_KEY 		= AppPropertiesService.getProperty( "openagenda.apiKey" );	
-    
+    private static final String PROPERTY_ENDPOINT_ALL_EVENTS = "openagenda.api.v2.events.all.endpoint";
+    private static final String PROPERTY_ENDPOINT_EVENT = "openagenda.api.v2.events.detail.endpoint";
+    private static final String PROPERTY_API_OPENAGENDA_KEY = AppPropertiesService.getProperty( "openagenda.apiKey" );
 
     /**
      * Gets all events by agendaUid
-     * @param agendaUid (Required)
-     * @param filters (Optional See API V2 documentation)
+     * 
+     * @param agendaUid
+     *            (Required)
+     * @param filters
+     *            (Optional See API V2 documentation)
      * @return json data
      */
-	public String getEvents ( String agendaUid, EventsFilters filters )
-	{
-		String strUrl = MessageFormat.format(
-				AppPropertiesService.getProperty( PROPERTY_ENDPOINT_ALL_EVENTS ),
-				agendaUid,
-				PROPERTY_API_OPENAGENDA_KEY );
-		
-		strUrl += OpenagendaUtils.getRequestString( filters, EventsFilters.class ) ;
-        HttpAccess httpAccess = new HttpAccess();
+    public String getEvents( String agendaUid, EventsFilters filters )
+    {
+        String strUrl = MessageFormat.format( AppPropertiesService.getProperty( PROPERTY_ENDPOINT_ALL_EVENTS ), agendaUid, PROPERTY_API_OPENAGENDA_KEY );
+
+        strUrl += OpenagendaUtils.getRequestString( filters, EventsFilters.class );
+        HttpAccess httpAccess = new HttpAccess( );
 
         try
         {
-            return httpAccess.doGet(strUrl);
-        } 
-        catch (HttpAccessException ex) 
+            return httpAccess.doGet( strUrl );
+        }
+        catch( HttpAccessException ex )
         {
-        	AppLogService.error( "Erreur lors de l'appel a l'API {}", strUrl , ex );
-        }      
-        
+            AppLogService.error( "Erreur lors de l'appel a l'API {}", strUrl, ex );
+        }
+
         return StringUtils.EMPTY;
-	}
+    }
 
     /**
-     * Get the detail of an event 
-     * @param agendaUid (Required)
-     * @param eventUid (Required)
+     * Get the detail of an event
+     * 
+     * @param agendaUid
+     *            (Required)
+     * @param eventUid
+     *            (Required)
      * @return json data
      */
-	public String getEvent ( String agendaUid, String eventUid )
-	{
-		String strUrl = MessageFormat.format(
-				AppPropertiesService.getProperty( PROPERTY_ENDPOINT_EVENT ),
-				agendaUid,
-				eventUid,
-				PROPERTY_API_OPENAGENDA_KEY );
-		
-        HttpAccess httpAccess = new HttpAccess();
+    public String getEvent( String agendaUid, String eventUid )
+    {
+        String strUrl = MessageFormat.format( AppPropertiesService.getProperty( PROPERTY_ENDPOINT_EVENT ), agendaUid, eventUid, PROPERTY_API_OPENAGENDA_KEY );
+
+        HttpAccess httpAccess = new HttpAccess( );
 
         try
         {
-            return httpAccess.doGet(strUrl);
-        } 
-        catch (HttpAccessException ex) 
+            return httpAccess.doGet( strUrl );
+        }
+        catch( HttpAccessException ex )
         {
-        	AppLogService.error( "Erreur lors de l'appel a l'API {}", strUrl , ex );
-        }      
-        
+            AppLogService.error( "Erreur lors de l'appel a l'API {}", strUrl, ex );
+        }
+
         return StringUtils.EMPTY;
-	}
+    }
 }

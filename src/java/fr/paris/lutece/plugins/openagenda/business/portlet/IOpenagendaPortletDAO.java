@@ -31,55 +31,50 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.openagenda.api.mapping.v2;
+package fr.paris.lutece.plugins.openagenda.business.portlet;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.portal.business.portlet.IPortletInterfaceDAO;
+import fr.paris.lutece.portal.business.portlet.Portlet;
 
 /**
- * 
- * This is the business class for the Timings
- *
+ * Interface for OpenagendaPortletDAO
  */
-public class Timings
+public interface IOpenagendaPortletDAO extends IPortletInterfaceDAO
 {
-    @JsonProperty( "begin" )
-    private String _strBegin;
-
-    @JsonProperty( "end" )
-    private String _strEnd;
+    /**
+     * Delete record from table
+     *
+     * @param nPortletId
+     *            The indentifier of the Portlet
+     */
+    @Override
+    void delete( int nPortletId );
 
     /**
-     * @return the begin
+     * Insert a new record in the table.
+     *
+     * @param portlet
+     *            The Instance of the Portlet
      */
-    public String getBegin( )
-    {
-        return _strBegin;
-    }
+    @Override
+    void insert( Portlet portlet );
 
     /**
-     * @param strBegin
-     *            the begin to set
+     * load the data of dbpagePortlet from the table
+     *
+     * @param nIdPortlet
+     *            The identifier of the portlet
+     * @return portlet The instance of the object portlet
      */
-    public void setBegin( String strBegin )
-    {
-        this._strBegin = strBegin;
-    }
+    @Override
+    Portlet load( int nIdPortlet );
 
     /**
-     * @return the end
+     * Update the record in the table
+     *
+     * @param portlet
+     *            The reference of the portlet
      */
-    public String getEnd( )
-    {
-        return _strEnd;
-    }
-
-    /**
-     * @param strEnd
-     *            the end to set
-     */
-    public void setEnd( String strEnd )
-    {
-        this._strEnd = strEnd;
-    }
-
+    @Override
+    void store( Portlet portlet );
 }

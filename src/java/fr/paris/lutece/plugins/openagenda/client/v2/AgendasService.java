@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,35 +49,31 @@ import fr.paris.lutece.util.httpaccess.HttpAccessException;
  */
 public class AgendasService
 {
-	private static final String PROPERTY_ENDPOINT_MY_AGENDAS 		= "openagenda.api.v2.agendas.my.endpoint";
-	
-    private static final String PROPERTY_API_OPENAGENDA_KEY 		= AppPropertiesService.getProperty( "openagenda.apiKey" );	
-    
-    
-	/**
-	 * Gets the list of "agendas" of which the account is a member
-	 * @return json data
-	 */
-	public String getAgendas ( )
-	{
-		String endpointAPI = MessageFormat.format(
-				AppPropertiesService.getProperty( PROPERTY_ENDPOINT_MY_AGENDAS ),
-				PROPERTY_API_OPENAGENDA_KEY,
-				100,
-				0);
-		
-        HttpAccess httpAccess = new HttpAccess();
+    private static final String PROPERTY_ENDPOINT_MY_AGENDAS = "openagenda.api.v2.agendas.my.endpoint";
+
+    private static final String PROPERTY_API_OPENAGENDA_KEY = AppPropertiesService.getProperty( "openagenda.apiKey" );
+
+    /**
+     * Gets the list of "agendas" of which the account is a member
+     * 
+     * @return json data
+     */
+    public String getAgendas( )
+    {
+        String endpointAPI = MessageFormat.format( AppPropertiesService.getProperty( PROPERTY_ENDPOINT_MY_AGENDAS ), PROPERTY_API_OPENAGENDA_KEY, 100, 0 );
+
+        HttpAccess httpAccess = new HttpAccess( );
 
         try
         {
-            return httpAccess.doGet(endpointAPI);
-        } 
-        catch (HttpAccessException ex) 
+            return httpAccess.doGet( endpointAPI );
+        }
+        catch( HttpAccessException ex )
         {
-            AppLogService.error( "Erreur lors de l'appel a l'API {}", endpointAPI , ex );
-        }      
-        
+            AppLogService.error( "Erreur lors de l'appel a l'API {}", endpointAPI, ex );
+        }
+
         return StringUtils.EMPTY;
-	}
+    }
 
 }

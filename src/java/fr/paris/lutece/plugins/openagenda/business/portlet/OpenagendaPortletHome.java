@@ -31,55 +31,56 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.openagenda.api.mapping.v2;
+package fr.paris.lutece.plugins.openagenda.business.portlet;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import fr.paris.lutece.portal.business.portlet.IPortletInterfaceDAO;
+import fr.paris.lutece.portal.business.portlet.PortletHome;
+import fr.paris.lutece.portal.business.portlet.PortletTypeHome;
+import fr.paris.lutece.portal.service.spring.SpringContextService;
 
 /**
- * 
- * This is the business class for the Timings
- *
+ * This class provides instances management methods for OpenagendaPortle objects
  */
-public class Timings
+public class OpenagendaPortletHome extends PortletHome
 {
-    @JsonProperty( "begin" )
-    private String _strBegin;
-
-    @JsonProperty( "end" )
-    private String _strEnd;
+    private static IOpenagendaPortletDAO _dao = SpringContextService.getBean( "openagenda.openagendaPortletDAO" );
+    private static OpenagendaPortletHome _singleton = null;
 
     /**
-     * @return the begin
+     * Returns the instance of OpenagendaPortletHome
+     *
+     * @return the OpenagendaPortletHome instance
      */
-    public String getBegin( )
+    public static PortletHome getInstance( )
     {
-        return _strBegin;
+        if ( _singleton == null )
+        {
+            _singleton = new OpenagendaPortletHome( );
+        }
+        return _singleton;
     }
 
     /**
-     * @param strBegin
-     *            the begin to set
+     * Returns the instance of the portlet DAO singleton
+     * 
+     * @return the instance of the DAO singleton
      */
-    public void setBegin( String strBegin )
+    @Override
+    public IPortletInterfaceDAO getDAO( )
     {
-        this._strBegin = strBegin;
+        return _dao;
     }
 
     /**
-     * @return the end
+     * Returns the portlet type id
+     * 
+     * @return the portlet type id
      */
-    public String getEnd( )
+    @Override
+    public String getPortletTypeId( )
     {
-        return _strEnd;
-    }
-
-    /**
-     * @param strEnd
-     *            the end to set
-     */
-    public void setEnd( String strEnd )
-    {
-        this._strEnd = strEnd;
+        String strCurrentClassName = this.getClass( ).getName( );
+        return PortletTypeHome.getPortletTypeId( strCurrentClassName );
     }
 
 }

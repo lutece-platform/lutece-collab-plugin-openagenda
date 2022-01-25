@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,62 +49,59 @@ import fr.paris.lutece.util.httpaccess.HttpAccessException;
  */
 public class LocationsService
 {
-	private static final String PROPERTY_ENDPOINT_ALL_LOCATIONS 	= "openagenda.api.v2.locations.all.endpoint";
-	private static final String PROPERTY_ENDPOINT_LOCATION		 	= "openagenda.api.v2.locations.detail.endpoint";
-	
-    private static final String PROPERTY_API_OPENAGENDA_KEY 		= AppPropertiesService.getProperty( "openagenda.apiKey" );	
-    
+    private static final String PROPERTY_ENDPOINT_ALL_LOCATIONS = "openagenda.api.v2.locations.all.endpoint";
+    private static final String PROPERTY_ENDPOINT_LOCATION = "openagenda.api.v2.locations.detail.endpoint";
+
+    private static final String PROPERTY_API_OPENAGENDA_KEY = AppPropertiesService.getProperty( "openagenda.apiKey" );
+
     /**
      * Gets locations by agendaUid
+     * 
      * @param agendaUid
      * @return json data
      */
-	public String getLocations ( String agendaUid )
-	{
-		String endpointAPI = MessageFormat.format(
-				AppPropertiesService.getProperty( PROPERTY_ENDPOINT_ALL_LOCATIONS ),
-				agendaUid,
-				PROPERTY_API_OPENAGENDA_KEY );
-		
-        HttpAccess httpAccess = new HttpAccess();
+    public String getLocations( String agendaUid )
+    {
+        String endpointAPI = MessageFormat.format( AppPropertiesService.getProperty( PROPERTY_ENDPOINT_ALL_LOCATIONS ), agendaUid,
+                PROPERTY_API_OPENAGENDA_KEY );
 
-        try
-        {
-            return httpAccess.doGet(endpointAPI);
-        } 
-        catch (HttpAccessException ex) 
-        {
-        	AppLogService.error( "Erreur lors de l'appel a l'API {}", endpointAPI , ex );
-        }      
-        
-        return StringUtils.EMPTY;
-	}
-	
-    /**
-     * Get the detail of an location
-     * @param agendaUid
-     * @param locationUid
-     * @return json data
-     */
-	public String getLocation ( String agendaUid, String locationUid)
-	{
-		String endpointAPI = MessageFormat.format(
-				AppPropertiesService.getProperty( PROPERTY_ENDPOINT_LOCATION ),
-				agendaUid,
-				locationUid,
-				PROPERTY_API_OPENAGENDA_KEY );
-		
-        HttpAccess httpAccess = new HttpAccess();
+        HttpAccess httpAccess = new HttpAccess( );
 
         try
         {
             return httpAccess.doGet( endpointAPI );
-        } 
-        catch (HttpAccessException ex) 
+        }
+        catch( HttpAccessException ex )
         {
-        	AppLogService.error( "Erreur lors de l'appel a l'API {}", endpointAPI , ex );
-        }      
-        
+            AppLogService.error( "Erreur lors de l'appel a l'API {}", endpointAPI, ex );
+        }
+
         return StringUtils.EMPTY;
-	}
+    }
+
+    /**
+     * Get the detail of an location
+     * 
+     * @param agendaUid
+     * @param locationUid
+     * @return json data
+     */
+    public String getLocation( String agendaUid, String locationUid )
+    {
+        String endpointAPI = MessageFormat.format( AppPropertiesService.getProperty( PROPERTY_ENDPOINT_LOCATION ), agendaUid, locationUid,
+                PROPERTY_API_OPENAGENDA_KEY );
+
+        HttpAccess httpAccess = new HttpAccess( );
+
+        try
+        {
+            return httpAccess.doGet( endpointAPI );
+        }
+        catch( HttpAccessException ex )
+        {
+            AppLogService.error( "Erreur lors de l'appel a l'API {}", endpointAPI, ex );
+        }
+
+        return StringUtils.EMPTY;
+    }
 }

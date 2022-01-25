@@ -5,5 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
 
 
-    <bean id="openagenda.agendaDAO"  class="fr.paris.lutece.plugins.openagenda.business.AgendaDAO" />  
+    <bean id="openagenda.agendaDAO"  class="fr.paris.lutece.plugins.openagenda.business.AgendaDAO" />
+    <bean id="openagenda.openagendaPortletDAO"  class="fr.paris.lutece.plugins.openagenda.business.portlet.OpenagendaPortletDAO" /> 
+    
 </beans>

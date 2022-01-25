@@ -1,0 +1,41 @@
+<div class="row" >
+    <div class="col-sm-12">
+        <div class="row">
+            <#list event_list as event >
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="thumbnail">
+					<a href="https://openagenda.com/event/${(event.slug)!''}">
+						<img src="${(event.image.baseUrl)!''}${(event.image.filename)!''}">
+						<h3>${(event.title.fr)!''}</h3>
+					</a>
+					<div class="caption">
+						<p><i class="fa fa-info"></i> ${(event.description.fr)!''}</p>
+						<p><i class="fa fa-clock-o"></i> ${(event.dateRange.fr)!''}</p>
+						<p><i class="fa fa-map-marker"></i> ${(event.location.address)!''} (${(event.location.name)!''})</p>
+					</div>
+					<div class="caption">
+						<div class="text-right">
+							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${(event.slug)!''}" aria-expanded="false" aria-controls="collapse${(event.slug)!''}">
+								#i18n{openagenda.portlet.openagendaPortlet.labelMorePorlet}
+							</button>
+						</div>
+						<div class="col">
+							<div class="collapse multi-collapse" id="collapse${(event.slug)!''}">
+								<div class="card card-body">
+									<#if event.registration??>
+										<#list event.registration as registration>
+											<p><#if registration.type == 'email'><i class="fa fa-envelope"></i></#if><#if registration.type == 'phone'><i class="fa fa-phone"></i></#if> ${(registration.value)!''}</p>
+										</#list>
+									</#if>
+									<p><i class="fa fa-child"></i> #i18n{openagenda.portlet.openagendaPortlet.labelAgeDePorlet} ${(event.age.min)!''} #i18n{openagenda.portlet.openagendaPortlet.labelAgeAPorlet} ${(event.age.max)!''} #i18n{openagenda.portlet.openagendaPortlet.labelAgeAnsPorlet}</p>
+									<p><i class="fa fa-ticket"></i> ${(event.conditions.fr)!''}</p>
+								</div>
+							</div> 
+						</div>
+					</div>
+				</div>
+            </div>
+            </#list>
+        </div>
+    </div>
+</div>

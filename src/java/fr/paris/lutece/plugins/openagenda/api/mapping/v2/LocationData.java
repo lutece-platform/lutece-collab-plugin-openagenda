@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2022, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.openagenda.api.mapping.v2;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,462 +45,543 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class LocationData
 {
-	@JsonProperty("uid")
-	private int _nUid;
-	
-	@JsonProperty("name")
-	private String _strName;
-	
-	@JsonProperty("address")
-	private String _strAddress;
-	
-	@JsonProperty("access")
-	private Multilingue _access;
-	
-	@JsonProperty("description")
-	private Multilingue _description;
-	
-	@JsonProperty("image")
-	private String _strImage;
-	
-	@JsonProperty("imageCredits")
-	private String _strImageCredits;
-	
-	@JsonProperty("slug")
-	private String _strSlug;
-	
-	@JsonProperty("setUid")
-	private String _strSetUid;
-	
-	@JsonProperty("city")
-	private String _strCity;
-	
-	@JsonProperty("department")
-	private String _strDepartment;
-	
-	@JsonProperty("region")
-	private String _strRegion;
-	
-	@JsonProperty("postalCode")
-	private String _strPostalCode;
-	
-	@JsonProperty("insee")
-	private String _strInsee;
-	
-	@JsonProperty("countryCode")
-	private String _strCountryCode;
-	
-	@JsonProperty("district")
-	private String _strDistrict;
-	
-	@JsonProperty("latitude")
-	private Float _fLatitude;
-	
-	@JsonProperty("longitude")
-	private Float _fLongitude;
-	
-	@JsonProperty("updatedAt")
-	private String _strUpdatedAt;
-	
-	@JsonProperty("createdAt")
-	private String _strCreatedAt;
-	
-	@JsonProperty("website")
-	private String _strWebsite;
-	
-	@JsonProperty("email")
-	private String _strEmail;
-	
-	@JsonProperty("phone")
-	private String _strPhone;
-	
-	@JsonProperty("links")
-	private List<String> _listLinks;
-	
-	@JsonProperty("timezone")
-	private String _strTimezone;
-	
-	@JsonProperty("extId")
-	private String _strExtId;
-	
-	@JsonProperty("state")
-	private int _nState;
+    @JsonProperty( "uid" )
+    private int _nUid;
 
-	/**
-	 * @return the uid
-	 */
-	public int getUid() {
-		return _nUid;
-	}
+    @JsonProperty( "name" )
+    private String _strName;
 
-	/**
-	 * @param nUid the uid to set
-	 */
-	public void setUid(int nUid) {
-		this._nUid = nUid;
-	}
+    @JsonProperty( "address" )
+    private String _strAddress;
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return _strName;
-	}
+    @JsonProperty( "access" )
+    private Multilingue _access;
 
-	/**
-	 * @param strName the name to set
-	 */
-	public void setName(String strName) {
-		this._strName = strName;
-	}
+    @JsonProperty( "description" )
+    private Multilingue _description;
 
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return _strAddress;
-	}
+    @JsonProperty( "image" )
+    private String _strImage;
 
-	/**
-	 * @param strAddress the address to set
-	 */
-	public void setAddress(String strAddress) {
-		this._strAddress = strAddress;
-	}
+    @JsonProperty( "imageCredits" )
+    private String _strImageCredits;
 
-	/**
-	 * @return the access
-	 */
-	public Multilingue getAccess() {
-		return _access;
-	}
+    @JsonProperty( "slug" )
+    private String _strSlug;
 
-	/**
-	 * @param access the access to set
-	 */
-	public void setAccess(Multilingue access) {
-		this._access = access;
-	}
+    @JsonProperty( "setUid" )
+    private String _strSetUid;
 
-	/**
-	 * @return the description
-	 */
-	public Multilingue getDescription() {
-		return _description;
-	}
+    @JsonProperty( "city" )
+    private String _strCity;
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(Multilingue description) {
-		this._description = description;
-	}
+    @JsonProperty( "department" )
+    private String _strDepartment;
 
-	/**
-	 * @return the image
-	 */
-	public String getImage() {
-		return _strImage;
-	}
+    @JsonProperty( "region" )
+    private String _strRegion;
 
-	/**
-	 * @param strImage the image to set
-	 */
-	public void setImage(String strImage) {
-		this._strImage = strImage;
-	}
+    @JsonProperty( "postalCode" )
+    private String _strPostalCode;
 
-	/**
-	 * @return the imageCredits
-	 */
-	public String getImageCredits() {
-		return _strImageCredits;
-	}
+    @JsonProperty( "insee" )
+    private String _strInsee;
 
-	/**
-	 * @param strImageCredits the imageCredits to set
-	 */
-	public void setImageCredits(String strImageCredits) {
-		this._strImageCredits = strImageCredits;
-	}
+    @JsonProperty( "countryCode" )
+    private String _strCountryCode;
 
-	/**
-	 * @return the slug
-	 */
-	public String getSlug() {
-		return _strSlug;
-	}
+    @JsonProperty( "district" )
+    private String _strDistrict;
 
-	/**
-	 * @param strSlug the slug to set
-	 */
-	public void setSlug(String strSlug) {
-		this._strSlug = strSlug;
-	}
+    @JsonProperty( "latitude" )
+    private Float _fLatitude;
 
-	/**
-	 * @return the setUid
-	 */
-	public String getSetUid() {
-		return _strSetUid;
-	}
+    @JsonProperty( "longitude" )
+    private Float _fLongitude;
 
-	/**
-	 * @param strSetUid the setUid to set
-	 */
-	public void setSetUid(String strSetUid) {
-		this._strSetUid = strSetUid;
-	}
+    @JsonProperty( "updatedAt" )
+    private String _strUpdatedAt;
 
-	/**
-	 * @return the city
-	 */
-	public String getCity() {
-		return _strCity;
-	}
+    @JsonProperty( "createdAt" )
+    private String _strCreatedAt;
 
-	/**
-	 * @param strCity the city to set
-	 */
-	public void setCity(String strCity) {
-		this._strCity = strCity;
-	}
+    @JsonProperty( "website" )
+    private String _strWebsite;
 
-	/**
-	 * @return the department
-	 */
-	public String getDepartment() {
-		return _strDepartment;
-	}
+    @JsonProperty( "email" )
+    private String _strEmail;
 
-	/**
-	 * @param strDepartment the department to set
-	 */
-	public void setDepartment(String strDepartment) {
-		this._strDepartment = strDepartment;
-	}
+    @JsonProperty( "phone" )
+    private String _strPhone;
 
-	/**
-	 * @return the region
-	 */
-	public String getRegion() {
-		return _strRegion;
-	}
+    @JsonProperty( "links" )
+    private List<String> _listLinks;
 
-	/**
-	 * @param strRegion the region to set
-	 */
-	public void setRegion(String strRegion) {
-		this._strRegion = strRegion;
-	}
+    @JsonProperty( "timezone" )
+    private String _strTimezone;
 
-	/**
-	 * @return the postalCode
-	 */
-	public String getPostalCode() {
-		return _strPostalCode;
-	}
+    @JsonProperty( "extId" )
+    private String _strExtId;
 
-	/**
-	 * @param strPostalCode the postalCode to set
-	 */
-	public void setPostalCode(String strPostalCode) {
-		this._strPostalCode = strPostalCode;
-	}
+    @JsonProperty( "state" )
+    private int _nState;
 
-	/**
-	 * @return the insee
-	 */
-	public String getInsee() {
-		return _strInsee;
-	}
+    /**
+     * @return the uid
+     */
+    public int getUid( )
+    {
+        return _nUid;
+    }
 
-	/**
-	 * @param strInsee the insee to set
-	 */
-	public void setInsee(String strInsee) {
-		this._strInsee = strInsee;
-	}
+    /**
+     * @param nUid
+     *            the uid to set
+     */
+    public void setUid( int nUid )
+    {
+        this._nUid = nUid;
+    }
 
-	/**
-	 * @return the countryCode
-	 */
-	public String getCountryCode() {
-		return _strCountryCode;
-	}
+    /**
+     * @return the name
+     */
+    public String getName( )
+    {
+        return _strName;
+    }
 
-	/**
-	 * @param strCountryCode the countryCode to set
-	 */
-	public void setCountryCode(String strCountryCode) {
-		this._strCountryCode = strCountryCode;
-	}
+    /**
+     * @param strName
+     *            the name to set
+     */
+    public void setName( String strName )
+    {
+        this._strName = strName;
+    }
 
-	/**
-	 * @return the district
-	 */
-	public String getDistrict() {
-		return _strDistrict;
-	}
+    /**
+     * @return the address
+     */
+    public String getAddress( )
+    {
+        return _strAddress;
+    }
 
-	/**
-	 * @param strDistrict the district to set
-	 */
-	public void setDistrict(String strDistrict) {
-		this._strDistrict = strDistrict;
-	}
+    /**
+     * @param strAddress
+     *            the address to set
+     */
+    public void setAddress( String strAddress )
+    {
+        this._strAddress = strAddress;
+    }
 
-	/**
-	 * @return the latitude
-	 */
-	public Float getLatitude() {
-		return _fLatitude;
-	}
+    /**
+     * @return the access
+     */
+    public Multilingue getAccess( )
+    {
+        return _access;
+    }
 
-	/**
-	 * @param fLatitude the latitude to set
-	 */
-	public void setLatitude(Float fLatitude) {
-		this._fLatitude = fLatitude;
-	}
+    /**
+     * @param access
+     *            the access to set
+     */
+    public void setAccess( Multilingue access )
+    {
+        this._access = access;
+    }
 
-	/**
-	 * @return the longitude
-	 */
-	public Float getLongitude() {
-		return _fLongitude;
-	}
+    /**
+     * @return the description
+     */
+    public Multilingue getDescription( )
+    {
+        return _description;
+    }
 
-	/**
-	 * @param fLongitude the longitude to set
-	 */
-	public void setLongitude(Float fLongitude) {
-		this._fLongitude = fLongitude;
-	}
+    /**
+     * @param description
+     *            the description to set
+     */
+    public void setDescription( Multilingue description )
+    {
+        this._description = description;
+    }
 
-	/**
-	 * @return the updatedAt
-	 */
-	public String getUpdatedAt() {
-		return _strUpdatedAt;
-	}
+    /**
+     * @return the image
+     */
+    public String getImage( )
+    {
+        return _strImage;
+    }
 
-	/**
-	 * @param strUpdatedAt the updatedAt to set
-	 */
-	public void setUpdatedAt(String strUpdatedAt) {
-		this._strUpdatedAt = strUpdatedAt;
-	}
+    /**
+     * @param strImage
+     *            the image to set
+     */
+    public void setImage( String strImage )
+    {
+        this._strImage = strImage;
+    }
 
-	/**
-	 * @return the createdAt
-	 */
-	public String getCreatedAt() {
-		return _strCreatedAt;
-	}
+    /**
+     * @return the imageCredits
+     */
+    public String getImageCredits( )
+    {
+        return _strImageCredits;
+    }
 
-	/**
-	 * @param strCreatedAt the createdAt to set
-	 */
-	public void setCreatedAt(String strCreatedAt) {
-		this._strCreatedAt = strCreatedAt;
-	}
+    /**
+     * @param strImageCredits
+     *            the imageCredits to set
+     */
+    public void setImageCredits( String strImageCredits )
+    {
+        this._strImageCredits = strImageCredits;
+    }
 
-	/**
-	 * @return the website
-	 */
-	public String getWebsite() {
-		return _strWebsite;
-	}
+    /**
+     * @return the slug
+     */
+    public String getSlug( )
+    {
+        return _strSlug;
+    }
 
-	/**
-	 * @param strWebsite the website to set
-	 */
-	public void setWebsite(String strWebsite) {
-		this._strWebsite = strWebsite;
-	}
+    /**
+     * @param strSlug
+     *            the slug to set
+     */
+    public void setSlug( String strSlug )
+    {
+        this._strSlug = strSlug;
+    }
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return _strEmail;
-	}
+    /**
+     * @return the setUid
+     */
+    public String getSetUid( )
+    {
+        return _strSetUid;
+    }
 
-	/**
-	 * @param strEmail the email to set
-	 */
-	public void setEmail(String strEmail) {
-		this._strEmail = strEmail;
-	}
+    /**
+     * @param strSetUid
+     *            the setUid to set
+     */
+    public void setSetUid( String strSetUid )
+    {
+        this._strSetUid = strSetUid;
+    }
 
-	/**
-	 * @return the phone
-	 */
-	public String getPhone() {
-		return _strPhone;
-	}
+    /**
+     * @return the city
+     */
+    public String getCity( )
+    {
+        return _strCity;
+    }
 
-	/**
-	 * @param strPhone the phone to set
-	 */
-	public void setPhone(String strPhone) {
-		this._strPhone = strPhone;
-	}
+    /**
+     * @param strCity
+     *            the city to set
+     */
+    public void setCity( String strCity )
+    {
+        this._strCity = strCity;
+    }
 
-	/**
-	 * @return the links
-	 */
-	public List<String> getLinks() {
-		return _listLinks;
-	}
+    /**
+     * @return the department
+     */
+    public String getDepartment( )
+    {
+        return _strDepartment;
+    }
 
-	/**
-	 * @param listLinks the links to set
-	 */
-	public void setLinks(List<String> listLinks) {
-		this._listLinks = listLinks;
-	}
+    /**
+     * @param strDepartment
+     *            the department to set
+     */
+    public void setDepartment( String strDepartment )
+    {
+        this._strDepartment = strDepartment;
+    }
 
-	/**
-	 * @return the timezone
-	 */
-	public String getTimezone() {
-		return _strTimezone;
-	}
+    /**
+     * @return the region
+     */
+    public String getRegion( )
+    {
+        return _strRegion;
+    }
 
-	/**
-	 * @param strTimezone the timezone to set
-	 */
-	public void setTimezone(String strTimezone) {
-		this._strTimezone = strTimezone;
-	}
+    /**
+     * @param strRegion
+     *            the region to set
+     */
+    public void setRegion( String strRegion )
+    {
+        this._strRegion = strRegion;
+    }
 
-	/**
-	 * @return the extId
-	 */
-	public String getExtId() {
-		return _strExtId;
-	}
+    /**
+     * @return the postalCode
+     */
+    public String getPostalCode( )
+    {
+        return _strPostalCode;
+    }
 
-	/**
-	 * @param strExtId the extId to set
-	 */
-	public void setExtId(String strExtId) {
-		this._strExtId = strExtId;
-	}
+    /**
+     * @param strPostalCode
+     *            the postalCode to set
+     */
+    public void setPostalCode( String strPostalCode )
+    {
+        this._strPostalCode = strPostalCode;
+    }
 
-	/**
-	 * @return the state
-	 */
-	public int getState() {
-		return _nState;
-	}
+    /**
+     * @return the insee
+     */
+    public String getInsee( )
+    {
+        return _strInsee;
+    }
 
-	/**
-	 * @param nState the state to set
-	 */
-	public void setState(int nState) {
-		this._nState = nState;
-	}
+    /**
+     * @param strInsee
+     *            the insee to set
+     */
+    public void setInsee( String strInsee )
+    {
+        this._strInsee = strInsee;
+    }
+
+    /**
+     * @return the countryCode
+     */
+    public String getCountryCode( )
+    {
+        return _strCountryCode;
+    }
+
+    /**
+     * @param strCountryCode
+     *            the countryCode to set
+     */
+    public void setCountryCode( String strCountryCode )
+    {
+        this._strCountryCode = strCountryCode;
+    }
+
+    /**
+     * @return the district
+     */
+    public String getDistrict( )
+    {
+        return _strDistrict;
+    }
+
+    /**
+     * @param strDistrict
+     *            the district to set
+     */
+    public void setDistrict( String strDistrict )
+    {
+        this._strDistrict = strDistrict;
+    }
+
+    /**
+     * @return the latitude
+     */
+    public Float getLatitude( )
+    {
+        return _fLatitude;
+    }
+
+    /**
+     * @param fLatitude
+     *            the latitude to set
+     */
+    public void setLatitude( Float fLatitude )
+    {
+        this._fLatitude = fLatitude;
+    }
+
+    /**
+     * @return the longitude
+     */
+    public Float getLongitude( )
+    {
+        return _fLongitude;
+    }
+
+    /**
+     * @param fLongitude
+     *            the longitude to set
+     */
+    public void setLongitude( Float fLongitude )
+    {
+        this._fLongitude = fLongitude;
+    }
+
+    /**
+     * @return the updatedAt
+     */
+    public String getUpdatedAt( )
+    {
+        return _strUpdatedAt;
+    }
+
+    /**
+     * @param strUpdatedAt
+     *            the updatedAt to set
+     */
+    public void setUpdatedAt( String strUpdatedAt )
+    {
+        this._strUpdatedAt = strUpdatedAt;
+    }
+
+    /**
+     * @return the createdAt
+     */
+    public String getCreatedAt( )
+    {
+        return _strCreatedAt;
+    }
+
+    /**
+     * @param strCreatedAt
+     *            the createdAt to set
+     */
+    public void setCreatedAt( String strCreatedAt )
+    {
+        this._strCreatedAt = strCreatedAt;
+    }
+
+    /**
+     * @return the website
+     */
+    public String getWebsite( )
+    {
+        return _strWebsite;
+    }
+
+    /**
+     * @param strWebsite
+     *            the website to set
+     */
+    public void setWebsite( String strWebsite )
+    {
+        this._strWebsite = strWebsite;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail( )
+    {
+        return _strEmail;
+    }
+
+    /**
+     * @param strEmail
+     *            the email to set
+     */
+    public void setEmail( String strEmail )
+    {
+        this._strEmail = strEmail;
+    }
+
+    /**
+     * @return the phone
+     */
+    public String getPhone( )
+    {
+        return _strPhone;
+    }
+
+    /**
+     * @param strPhone
+     *            the phone to set
+     */
+    public void setPhone( String strPhone )
+    {
+        this._strPhone = strPhone;
+    }
+
+    /**
+     * @return the links
+     */
+    public List<String> getLinks( )
+    {
+        return Collections.unmodifiableList( _listLinks );
+    }
+
+    /**
+     * @param listLinks
+     *            the links to set
+     */
+    public void setLinks( List<String> listLinks )
+    {
+        this._listLinks = Collections.unmodifiableList( listLinks );
+    }
+
+    /**
+     * @return the timezone
+     */
+    public String getTimezone( )
+    {
+        return _strTimezone;
+    }
+
+    /**
+     * @param strTimezone
+     *            the timezone to set
+     */
+    public void setTimezone( String strTimezone )
+    {
+        this._strTimezone = strTimezone;
+    }
+
+    /**
+     * @return the extId
+     */
+    public String getExtId( )
+    {
+        return _strExtId;
+    }
+
+    /**
+     * @param strExtId
+     *            the extId to set
+     */
+    public void setExtId( String strExtId )
+    {
+        this._strExtId = strExtId;
+    }
+
+    /**
+     * @return the state
+     */
+    public int getState( )
+    {
+        return _nState;
+    }
+
+    /**
+     * @param nState
+     *            the state to set
+     */
+    public void setState( int nState )
+    {
+        this._nState = nState;
+    }
 }

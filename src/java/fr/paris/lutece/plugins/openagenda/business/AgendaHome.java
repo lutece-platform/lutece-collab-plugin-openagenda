@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2015, Mairie de Paris
+ * Copyright (c) 2002-2022, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -7,15 +7,15 @@
  * are met:
  *
  *  1. Redistributions of source code must retain the above copyright notice
- *	 and the following disclaimer.
+ *     and the following disclaimer.
  *
  *  2. Redistributions in binary form must reproduce the above copyright notice
- *	 and the following disclaimer in the documentation and/or other materials
- *	 provided with the distribution.
+ *     and the following disclaimer in the documentation and/or other materials
+ *     provided with the distribution.
  *
  *  3. Neither the name of 'Mairie de Paris' nor 'Lutece' nor the names of its
- *	 contributors may be used to endorse or promote products derived from
- *	 this software without specific prior written permission.
+ *     contributors may be used to endorse or promote products derived from
+ *     this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -31,7 +31,6 @@
  *
  * License 1.0
  */
- 
 package fr.paris.lutece.plugins.openagenda.business;
 
 import fr.paris.lutece.portal.service.plugin.Plugin;
@@ -53,14 +52,16 @@ public final class AgendaHome
     /**
      * Private constructor - this class need not be instantiated
      */
-    private AgendaHome(  )
+    private AgendaHome( )
     {
     }
 
     /**
      * Create an instance of the agenda class
-     * @param agenda The instance of the Agenda which contains the informations to store
-     * @return The  instance of agenda which has been created with its primary key.
+     * 
+     * @param agenda
+     *            The instance of the Agenda which contains the informations to store
+     * @return The instance of agenda which has been created with its primary key.
      */
     public static Agenda create( Agenda agenda )
     {
@@ -71,8 +72,10 @@ public final class AgendaHome
 
     /**
      * Update of the agenda which is specified in parameter
-     * @param agenda The instance of the Agenda which contains the data to store
-     * @return The instance of the  agenda which has been updated
+     * 
+     * @param agenda
+     *            The instance of the Agenda which contains the data to store
+     * @return The instance of the agenda which has been updated
      */
     public static Agenda update( Agenda agenda )
     {
@@ -83,7 +86,9 @@ public final class AgendaHome
 
     /**
      * Remove the agenda whose identifier is specified in parameter
-     * @param nKey The agenda Id
+     * 
+     * @param nKey
+     *            The agenda Id
      */
     public static void remove( int nKey )
     {
@@ -95,25 +100,29 @@ public final class AgendaHome
 
     /**
      * Returns an instance of a agenda whose identifier is specified in parameter
-     * @param nKey The agenda primary key
+     * 
+     * @param nKey
+     *            The agenda primary key
      * @return an instance of Agenda
      */
     public static Agenda findByPrimaryKey( int nKey )
     {
-        return _dao.load( nKey, _plugin);
+        return _dao.load( nKey, _plugin );
     }
 
     /**
      * Load the data of all the agenda objects and returns them in form of a collection
+     * 
      * @return the collection which contains the data of all the agenda objects
      */
     public static Collection<Agenda> getAgendasList( )
     {
         return _dao.selectAgendasList( _plugin );
     }
-    
+
     /**
      * Load the id of all the agenda objects and returns them in form of a collection
+     * 
      * @return the collection which contains the id of all the agenda objects
      */
     public static Collection<Integer> getIdAgendasList( )
@@ -121,4 +130,3 @@ public final class AgendaHome
         return _dao.selectIdAgendasList( _plugin );
     }
 }
-
