@@ -1,41 +1,38 @@
-<#include "manageopenagenda_tabs.html" />
-<@tabs tab="agenda" />
-
-<@boxHeader class="bg-white" i18nTitleKey="openagenda.modify_agenda.pageTitle" />
-
-<@boxBody class="card-body bg-white">
-    <@tform class="form-horizontal" method="post" name="modify_agenda" action="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
-        <@messages errors=errors />
-        <@input type="hidden" id="id" name="id" value="${agenda.id}"/>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelUid}" helpKey="#i18n{openagenda.modify_agenda.labelUid.help}">
-			<@input name="uid"  value="${agenda.uid!''}" mandatory=true/>
-		</@formGroup>	
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelName}" helpKey="#i18n{openagenda.modify_agenda.labelName.help}">
-			<@input name="name"  value="${agenda.name!''}" mandatory=true/>
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelDescription}" helpKey="#i18n{openagenda.modify_agenda.labelDescription.help}">
-			<@input name="description"  value="${agenda.description!''}" />
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelEventsEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelEventsEmbeddingCode.help}">
-			<@input type="textarea" name="eventsEmbeddingCode"  value="${agenda.eventsEmbeddingCode!''}" mandatory=true />
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelMapEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelMapEmbeddingCode.help}">
-			<@input type="textarea" name="mapEmbeddingCode"  value="${agenda.mapEmbeddingCode!''}" />
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelSearchEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelSearchEmbeddingCode.help}">
-			<@input type="textarea" name="searchEmbeddingCode"  value="${agenda.searchEmbeddingCode!''}" />
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelCategoriesEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelCategoriesEmbeddingCode.help}">
-			<@input type="textarea" name="categoriesEmbeddingCode"  value="${agenda.categoriesEmbeddingCode!''}" />
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelTagsEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelTagsEmbeddingCode.help}">
-			<@input type="textarea" name="tagsEmbeddingCode"  value="${agenda.tagsEmbeddingCode!''}" />
-		</@formGroup>
-        <@formGroup labelKey="#i18n{openagenda.modify_agenda.labelCalendarEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelCalendarEmbeddingCode.help}">
-			<@input type="textarea" name="calendarEmbeddingCode"  value="${agenda.calendarEmbeddingCode!''}" />
-		</@formGroup>
-		
-        <@actionButtons button1Name="action_modifyAgenda" button2Name="view_manageAgendas"/>
-    </@tform>
-</@boxBody>
-
+<@box class='container'>
+	<@boxHeader class="bg-white" i18nTitleKey="openagenda.modify_agenda.pageTitle" skipHeader=true />
+	<@boxBody class="card-body bg-white">
+		<@tform class="form-horizontal" method="post" name="modify_agenda" action="jsp/admin/plugins/openagenda/ManageAgendas.jsp">
+			<@messages errors=errors />
+			<@input type="hidden" id="id" name="id" value="${agenda.id}" />
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelUid}" helpKey="#i18n{openagenda.modify_agenda.labelUid.help}" mandatory=true rows=2>
+				<@input name="uid" value="${agenda.uid!''}" />
+			</@formGroup>	
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelName}" helpKey="#i18n{openagenda.modify_agenda.labelName.help}" mandatory=true rows=2>
+				<@input name="name" value="${agenda.name!''}" />
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelDescription}" helpKey="#i18n{openagenda.modify_agenda.labelDescription.help}" rows=2>
+				<@input name="description" value="${agenda.description!''}" />
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelEventsEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelEventsEmbeddingCode.help}" mandatory=true rows=2>
+				<@input type='textarea' class='prism-live language-html line-numbers' name="eventsEmbeddingCode" value="${agenda.eventsEmbeddingCode!''}"/>
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelMapEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelMapEmbeddingCode.help}" rows=2>
+				<@input type='textarea' class='prism-live language-html' name="mapEmbeddingCode" value="${agenda.mapEmbeddingCode!''}" />
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelSearchEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelSearchEmbeddingCode.help}" rows=2>
+				<@input type='textarea' class='prism-live language-html' name="searchEmbeddingCode" value="${agenda.searchEmbeddingCode!''}" />
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelCategoriesEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelCategoriesEmbeddingCode.help}" rows=2>
+				<@input type='textarea' class='prism-live language-html' name="categoriesEmbeddingCode" value="${agenda.categoriesEmbeddingCode!''}" />
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelTagsEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelTagsEmbeddingCode.help}" rows=2>
+				<@input type='textarea' class='prism-live language-html' name="tagsEmbeddingCode" value="${agenda.tagsEmbeddingCode!''}" />
+			</@formGroup>
+			<@formGroup labelKey="#i18n{openagenda.modify_agenda.labelCalendarEmbeddingCode}" helpKey="#i18n{openagenda.modify_agenda.labelCalendarEmbeddingCode.help}" rows=2>
+				<@input type='textarea' class='prism-live language-html' name="calendarEmbeddingCode" value="${agenda.calendarEmbeddingCode!''}" />
+			</@formGroup>
+			<@actionButtons button1Name="action_modifyAgenda" button2Name="view_manageAgendas"/>
+		</@tform>
+	</@boxBody>
+</@box>
+<@codeHighLight />
