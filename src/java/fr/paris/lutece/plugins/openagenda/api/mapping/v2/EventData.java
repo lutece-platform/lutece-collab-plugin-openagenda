@@ -75,13 +75,13 @@ public class EventData
     private String _strImageCredits;
 
     @JsonProperty( "registration" )
-    private List<Registration> _listRegistration;
+    private List<Registration> _listRegistration = Collections.emptyList( );
 
     @JsonProperty( "accessibility" )
     private Accessibility _accessibility;
 
     @JsonProperty( "timings" )
-    private List<Timings> _listTimings;
+    private List<Timings> _listTimings = Collections.emptyList( );
 
     @JsonProperty( "age" )
     private Age _age;
@@ -96,7 +96,7 @@ public class EventData
     private String _strOnlineAccessLink;
 
     @JsonProperty( "links" )
-    private List<Links> _listLinks;
+    private List<Links> _listLinks = Collections.emptyList( );
 
     @JsonProperty( "timezone" )
     private String _strTimezone;
