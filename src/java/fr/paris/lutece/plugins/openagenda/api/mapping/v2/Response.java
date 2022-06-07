@@ -49,19 +49,19 @@ public class Response
     private boolean _bSuccess;
 
     @JsonProperty( "events" )
-    private List<EventData> _listEvents;
+    private List<EventData> _listEvents = Collections.emptyList( );
 
     @JsonProperty( "event" )
     private EventData _event;
 
     @JsonProperty( "locations" )
-    private List<LocationData> _listLocations;
+    private List<LocationData> _listLocations = Collections.emptyList( );
 
     @JsonProperty( "location" )
     private LocationData _location;
 
     @JsonProperty( "items" )
-    private List<AgendaData> _listAgendas;
+    private List<AgendaData> _listAgendas = Collections.emptyList( );
 
     /**
      * @return the success

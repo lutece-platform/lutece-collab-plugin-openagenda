@@ -46,29 +46,29 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Keywords
 {
     @JsonProperty( "fr" )
-    private List<String> _listFr;
+    private List<String> _listFr = Collections.emptyList( );
 
     @JsonProperty( "en" )
-    private List<String> _listEn;
+    private List<String> _listEn = Collections.emptyList( );
 
     @JsonProperty( "es" )
-    private List<String> _listEs;
+    private List<String> _listEs = Collections.emptyList( );
 
     @JsonProperty( "de" )
-    private List<String> _listDe;
+    private List<String> _listDe = Collections.emptyList( );
 
     @JsonProperty( "it" )
-    private List<String> _listIt;
+    private List<String> _listIt = Collections.emptyList( );
 
     @JsonProperty( "ar" )
-    private List<String> _listAr;
+    private List<String> _listAr = Collections.emptyList( );
 
     /**
      * @return the listFr
      */
     public List<String> getListFr( )
     {
-        return Collections.unmodifiableList( _listFr );
+         return Collections.unmodifiableList( _listFr );
     }
 
     /**

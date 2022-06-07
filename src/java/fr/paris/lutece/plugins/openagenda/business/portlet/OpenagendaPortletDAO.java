@@ -62,7 +62,6 @@ public class OpenagendaPortletDAO implements IOpenagendaPortletDAO
         {
             daoUtil.setInt( 1, nPortletId );
             daoUtil.executeUpdate( );
-            daoUtil.free( );
         }
     }
 
@@ -81,7 +80,6 @@ public class OpenagendaPortletDAO implements IOpenagendaPortletDAO
             daoUtil.setInt( ++nIndex, openagendaPortel.getAgendaUid( ) );
 
             daoUtil.executeUpdate( );
-            daoUtil.free( );
         }
     }
 
@@ -107,7 +105,6 @@ public class OpenagendaPortletDAO implements IOpenagendaPortletDAO
                 openagendaPortel.setAgendaUid( daoUtil.getInt( ++nIndex ) );
             }
 
-            daoUtil.free( );
             return openagendaPortel;
         }
     }
@@ -125,10 +122,9 @@ public class OpenagendaPortletDAO implements IOpenagendaPortletDAO
             int nIndex = 0;
             daoUtil.setString( ++nIndex, openagendaPortel.getName( ) );
             daoUtil.setInt( ++nIndex, openagendaPortel.getAgendaUid( ) );
-            daoUtil.setInt( ++nIndex, openagendaPortel.getIdPortlet( ) );
+            daoUtil.setInt( ++nIndex, openagendaPortel.getId( ) );
 
             daoUtil.executeUpdate( );
-            daoUtil.free( );
         }
     }
 
@@ -155,7 +151,6 @@ public class OpenagendaPortletDAO implements IOpenagendaPortletDAO
                 listMyObjects.add( openagendaPortlet );
             }
 
-            daoUtil.free( );
             return listMyObjects;
         }
     }

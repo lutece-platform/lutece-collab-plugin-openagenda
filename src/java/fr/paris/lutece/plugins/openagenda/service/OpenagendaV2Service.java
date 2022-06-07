@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.openagenda.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import fr.paris.lutece.plugins.openagenda.api.mapping.v2.AgendaData;
@@ -78,7 +79,11 @@ public class OpenagendaV2Service
         String jsonData = _agendasService.getAgendas( );
         Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
 
-        return response.getAgendas( );
+        if( response != null && response.getAgendas( ) != null)
+        {
+            return response.getAgendas( );
+        }
+        return Collections.emptyList( );
     }
 
     /**
@@ -94,8 +99,12 @@ public class OpenagendaV2Service
     {
         String jsonData = _eventsService.getEvents( agendaUid, filters );
         Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
-
-        return response.getEvents( );
+        
+        if( response != null && response.getEvents( ) != null )
+        {
+            return response.getEvents( );
+        }
+        return Collections.emptyList( );
     }
 
     /**
@@ -112,7 +121,11 @@ public class OpenagendaV2Service
         String jsonData = _eventsService.getEvent( agendaUid, eventUid );
         Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
 
-        return response.getEvent( );
+        if( response != null && response.getEvent( ) != null )
+        {
+            return response.getEvent( );
+        }
+        return null;
     }
 
     /**
@@ -126,7 +139,11 @@ public class OpenagendaV2Service
         String jsonData = _locationsService.getLocations( agendaUid );
         Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
 
-        return response.getLocations( );
+        if( response != null && response.getLocations( ) != null )
+        {
+            return response.getLocations( );
+        }
+        return Collections.emptyList( );
     }
 
     /**
@@ -141,6 +158,10 @@ public class OpenagendaV2Service
         String jsonData = _locationsService.getLocation( agendaUid, locationUid );
         Response response = OpenagendaUtils.jsonStringToObject( jsonData, Response.class );
 
-        return response.getLocation( );
+        if( response != null && response.getLocation( ) != null )
+        {
+            return response.getLocation( );
+        }
+        return null;
     }
 }
